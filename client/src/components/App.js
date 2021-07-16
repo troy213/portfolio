@@ -1,63 +1,45 @@
 import React from 'react'
+import Navbar from './Navbar'
 import 'font-awesome/css/font-awesome.min.css'
+import './App.css'
+import blob from '../assets/blob.svg'
+import avatar from '../assets/Hero.jpg'
 
 const App = () => {
   return (
     <>
-      <div className='container'>
-        <div className='hero'>
-          {/* navbar section */}
-          <header>
-            <h2 className='title'>Portfolio</h2>
-            <nav>
-              <ul>
-                <li>
-                  <a href='/'>Home</a>
-                </li>
-                <li>
-                  <a href='/'>About</a>
-                </li>
-                <li>
-                  <a href='/'>Experience</a>
-                </li>
-                <li>
-                  <a href='/'>Projects</a>
-                </li>
-                <li>
-                  <a href='/'>Contact</a>
-                </li>
-                <li>
-                  <i className='fa fa-moon-o'></i>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          {/* navbar section end*/}
+      {/* hero section */}
+      <div className='bg-hero'>
+        <div className='container'>
+          <Navbar />
 
-          {/* hero section */}
-          <div className='hero-info'>
-            <div className='hero-info-desc'>
-              <h1 className='hero-info-title'>Hi, I'm Tritera Erlangga</h1>
-              <h2 className='hero-info-subtitle'>Junior Web Developer</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-                rerum sit voluptatem, eos temporibus corrupti, quaerat veritatis
-                veniam iusto deleniti modi ducimus possimus aliquid, nisi velit
-                assumenda sunt! Nisi, rem.
-              </p>
-              <button className='hero-info-button'>Contact</button>
-            </div>
-            <div className='hero-info-blob'>
-              <img src='' alt='blob' />
+          <div className='hero'>
+            <div className='hero-info'>
+              <div className='hero-info-desc'>
+                <h1 className='hero-info-title'>Hi, I'm Tritera Erlangga</h1>
+                <h2 className='hero-info-subtitle'>Junior Web Developer</h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Maiores rerum sit voluptatem, eos temporibus corrupti, quaerat
+                  veritatis veniam iusto deleniti modi ducimus possimus aliquid,
+                  nisi velit assumenda sunt! Nisi, rem.
+                </p>
+                <button className='btn btn-primary'>Contact</button>
+              </div>
+              <div className='hero-info-blob'>
+                <img src={blob} alt='blob' className='blob' />
+              </div>
             </div>
           </div>
         </div>
-        {/* hero section end */}
+      </div>
+      {/* hero section end */}
 
-        {/* about section */}
+      {/* about section */}
+      <div className='container'>
         <div className='about'>
-          <h2>About Me</h2>
-          <h3>
+          <h2 className='text-center'>About Me</h2>
+          <h3 className='text-center'>
             <em>I'm a Junior Web Developer</em>
           </h3>
           <p>
@@ -68,12 +50,19 @@ const App = () => {
           </p>
           <hr />
           <div className='about-info'>
-            <img src='' alt='about-img' className='about-avatar' />
+            <img src={avatar} alt='about-img' className='about-avatar' />
             <div className='about-info-details'>
               <h3>Details</h3>
-              <p>Nama: Tritera Erlangga</p>
-              <p>Age: 25 Years</p>
-              <p>Location: Pamulang, South Tangerang, Banten, Indonesia</p>
+              <p>
+                <i className='fa fa-user'></i> Name: Tritera Erlangga
+              </p>
+              <p>
+                <i className='fa fa-calendar'></i> Age: 25 Years
+              </p>
+              <p>
+                <i className='fa fa-map-marker'></i> Location: Pamulang, South
+                Tangerang, Banten, Indonesia
+              </p>
             </div>
           </div>
           <hr />
@@ -83,14 +72,20 @@ const App = () => {
             repellendus vero nihil esse asperiores, voluptatibus molestias,
             accusantium provident quod, dolores a!
           </p>
-          <button>Download CV</button>
-          <button>Donate</button>
+          <div className='about-button'>
+            <button className='btn btn-primary'>
+              Download CV <i className='fa fa-download'></i>
+            </button>
+            <button className='btn btn-secondary'>Donate</button>
+          </div>
         </div>
-        {/* about section end */}
+      </div>
+      {/* about section end */}
 
-        {/* experiences section */}
+      {/* experiences section */}
+      <div className='container'>
         <div className='experiences'>
-          <h2>Experiences</h2>
+          <h2 className='text-center'>Experiences</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
             sed mollitia non velit officiis exercitationem earum voluptas
@@ -100,99 +95,103 @@ const App = () => {
           <hr />
           <h3>Educations</h3>
           <div className='experiences-info'>
-            <div>
-              <p className='experiences-info-title'>Niomic</p>
+            <div className='experiences-info-title'>
+              <p>Niomic</p>
               <p>
                 <em>2019 - current</em>
               </p>
             </div>
             <div>
-              <p className='experiences-info-title'>Online Coding Bootcamp</p>
+              <p>Online Coding Bootcamp</p>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Tempore dicta non eius ab saepe, omnis eos, voluptas porro
                 cumque accusantium, repellat molestiae. Quos vitae pariatur
                 nulla praesentium, in natus quod.
               </p>
-              <div className='experiences-info-location'>
-                <i className='fas fa-map-marker-alt'></i>
-                <p>Online</p>
-              </div>
+              <p>
+                <em>
+                  <i className='fa fa-map-marker'></i> Online
+                </em>
+              </p>
             </div>
           </div>
           <div className='experiences-info'>
-            <div>
-              <p className='experiences-info-title'>Budiluhur University</p>
+            <div className='experiences-info-title'>
+              <p>Budiluhur University</p>
               <p>
                 <em>Sep 2014 - Mar 2018</em>
               </p>
             </div>
             <div>
-              <p className='experiences-info-title'>
-                Bachelor (S1) - Computer Science
-              </p>
+              <p>Bachelor (S1) - Computer Science</p>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Tempore dicta non eius ab saepe, omnis eos, voluptas porro
                 cumque accusantium, repellat molestiae. Quos vitae pariatur
                 nulla praesentium, in natus quod.
               </p>
-              <div className='experiences-info-location'>
-                <i className='fas fa-map-marker-alt'></i>
-                <p>South Jakarta</p>
-              </div>
+              <p>
+                <em>
+                  <i className='fa fa-map-marker'></i> South Jakarta
+                </em>
+              </p>
             </div>
           </div>
           <div className='experiences-info'>
-            <div>
-              <p className='experiences-info-title'>SMAN 9 Tangerang Selatan</p>
+            <div className='experiences-info-title'>
+              <p>SMAN 9 Tangerang Selatan</p>
               <p>
                 <em>2010 - 2013</em>
               </p>
             </div>
             <div>
-              <p className='experiences-info-title'>Science Major</p>
+              <p>Science Major</p>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Tempore dicta non eius ab saepe, omnis eos, voluptas porro
                 cumque accusantium, repellat molestiae. Quos vitae pariatur
                 nulla praesentium, in natus quod.
               </p>
-              <div className='experiences-info-location'>
-                <i className='fas fa-map-marker-alt'></i>
-                <p>South Tangerang</p>
-              </div>
+              <p>
+                <em>
+                  <i className='fa fa-map-marker'></i> South Tangerang
+                </em>
+              </p>
             </div>
           </div>
 
           <h3>Career</h3>
           <div className='experiences-info'>
-            <div>
-              <p className='experiences-info-title'>ICT</p>
+            <div className='experiences-info-title'>
+              <p>ICT</p>
               <p>
                 <em>2014 - current</em>
               </p>
             </div>
             <div>
-              <p className='experiences-info-title'>Office Administrator</p>
+              <p>Office Administrator</p>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Tempore dicta non eius ab saepe, omnis eos, voluptas porro
                 cumque accusantium, repellat molestiae. Quos vitae pariatur
                 nulla praesentium, in natus quod.
               </p>
-              <div className='experiences-info-location'>
-                <i className='fas fa-map-marker-alt'></i>
-                <p>South Tangerang</p>
-              </div>
+              <p>
+                <em>
+                  <i className='fa fa-map-marker'></i> South Tangerang
+                </em>
+              </p>
             </div>
           </div>
         </div>
-        {/* experiences section end */}
+      </div>
+      {/* experiences section end */}
 
-        {/* skills section */}
+      {/* skills section */}
+      <div className='container'>
         <div className='skills'>
-          <h2>Skills</h2>
+          <h2 className='text-center'>Skills</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo odit,
             dolor at, eos commodi obcaecati repellendus cum inventore illo
@@ -201,54 +200,56 @@ const App = () => {
           </p>
           <hr />
           <h3>Computer Skills</h3>
-          <div>
-            <p className='skills-title'>HTML</p>
+          <div className='skills-item'>
+            <p>HTML</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>CSS</p>
+          <div className='skills-item'>
+            <p>CSS</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>Javascript</p>
+          <div className='skills-item'>
+            <p>Javascript</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>PHP</p>
+          <div className='skills-item'>
+            <p>PHP</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>Java</p>
+          <div className='skills-item'>
+            <p>Java</p>
             <div className='progress-bar'></div>
           </div>
           <h3>Other</h3>
-          <div>
-            <p className='skills-title'>Microsoft Office</p>
+          <div className='skills-item'>
+            <p>Microsoft Office</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>Adobe</p>
+          <div className='skills-item'>
+            <p>Adobe</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>Macro Toolworks</p>
+          <div className='skills-item'>
+            <p>Macro Toolworks</p>
             <div className='progress-bar'></div>
           </div>
           <h3>Languages</h3>
-          <div>
-            <p className='skills-title'>Indonesia</p>
+          <div className='skills-item'>
+            <p>Indonesia</p>
             <div className='progress-bar'></div>
           </div>
-          <div>
-            <p className='skills-title'>English</p>
+          <div className='skills-item'>
+            <p>English</p>
             <div className='progress-bar'></div>
           </div>
         </div>
-        {/* skills section end */}
+      </div>
+      {/* skills section end */}
 
-        {/* project section */}
+      {/* project section */}
+      <div className='container'>
         <div className='projects'>
-          <h2>Projects</h2>
+          <h2 className='text-center'>Projects</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum
             quas vel id earum vero rerum aliquid ducimus, eligendi quam nemo
@@ -256,79 +257,88 @@ const App = () => {
           </p>
           <hr />
           <div className='projects-card'>
-            <div className='projects-card-items'>card</div>
-            <div className='projects-card-items'>card</div>
-            <div className='projects-card-items'>card</div>
+            <div className='projects-card-item'>card</div>
+            <div className='projects-card-item'>card</div>
+            <div className='projects-card-item'>card</div>
           </div>
         </div>
-        {/* project section end */}
+      </div>
+      {/* project section end */}
 
-        {/* contact section */}
+      {/* contact section */}
+      <div className='container'>
         <div className='contact'>
-          <h2>Contact</h2>
+          <h2 className='text-center'>Contact</h2>
           <div className='contact-form'>
-            <div>
-              <p>name</p>
-            </div>
-            <div>
-              <input type='text' />
-            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td>
+                    <input type='text' />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>
+                    <input type='text' />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Message</td>
+                  <td>
+                    <textarea name='' id='' cols='30' rows='10'></textarea>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div className='contact-form'>
-            <div>
-              <p>name</p>
-            </div>
-            <div>
-              <input type='text' />
-            </div>
+            <button className='btn btn-primary'>Send</button>
           </div>
-          <div className='contact-form'>
-            <div>
-              <p>name</p>
-            </div>
-            <div>
-              <textarea name='' id='' cols='30' rows='10'></textarea>
-            </div>
-          </div>
-          <button>Send</button>
         </div>
-        {/* contact section end */}
+      </div>
+      {/* contact section end */}
 
-        <footer>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-            qui sequi commodi laudantium soluta eos mollitia omnis accusantium,
-            obcaecati dolores maiores aspernatur modi repellendus? Fugiat itaque
-            libero ex officiis animi!
-          </p>
-          <button>Back To Top</button>
-          <div>
-            <div>
-              <a href='/'>
-                <i className='icon'></i>
-                Instagram
-              </a>
+      <div className='bg-footer'>
+        <div className='container'>
+          <footer>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+              qui sequi commodi laudantium soluta eos mollitia omnis
+              accusantium, obcaecati dolores maiores aspernatur modi
+              repellendus? Fugiat itaque libero ex officiis animi!
+            </p>
+            <div className='footer-btn'>
+              <button className='btn btn-secondary'>Back To Top</button>
             </div>
-            <div>
-              <a href='/'>
-                <i className='icon'></i>
-                Facebook
-              </a>
+            <div className='footer-link'>
+              <div>
+                <a href='/'>
+                  <i className='fa fa-instagram'></i>&nbsp; Instagram
+                </a>
+              </div>
+              <div>
+                <a href='/'>
+                  <i className='fa fa-facebook'></i>&nbsp; Facebook
+                </a>
+              </div>
+              <div>
+                <a href='/'>
+                  <i className='fa fa-github'></i>&nbsp;Github
+                </a>
+              </div>
+              <div>
+                <a href='/'>
+                  <i className='fa fa-linkedin'></i>&nbsp;Linkedin
+                </a>
+              </div>
             </div>
-            <div>
-              <a href='/'>
-                <i className='icon'></i>
-                Github
-              </a>
-            </div>
-            <div>
-              <a href='/'>
-                <i className='icon'></i>
-                Linkedin
-              </a>
-            </div>
-          </div>
-        </footer>
+            <p className='copyright text-center'>
+              Copyright &copy; 2021 Tritera Erlangga. All Rights Reserved
+            </p>
+          </footer>
+        </div>
       </div>
     </>
   )

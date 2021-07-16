@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+/* ================= REUSABLE ================= */
+
+.btn {
+  color: white;
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.btn-primary {
+  background: #576cdb;
+}
+
+.btn-secondary {
+  background: #ffcc4f;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: whitesmoke;
+}
+
+/* ================= LAYOUT ================= */
+
+.container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+  position: absolute;
+  width: 100%;
+}
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .title {
+  color: whitesmoke;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+}
+
+header li {
+  padding: 0 0.5em;
+}
+
+header a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+/* ================= HERO ================= */
+
+.bg-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 1)),
+    url('../assets/notebook-1280538.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-info-blob .blob {
+  width: 350px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-avatar {
+  width: 300px;
+  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.about-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= EXPERIENCES ================= */
+
+.experiences-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experiences-info-title {
+  flex-basis: 500px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-item p {
+  flex-basis: 300px;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  height: 1.75em;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-card {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.projects-card-item {
+  background: #ddd;
+  border-radius: 5px;
+  height: 300px;
+  width: 200px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form table td {
+  vertical-align: top;
+}
+
+/* ================= FOOTER ================= */
+
+.bg-footer {
+  background: #576cdb;
+}
+
+.footer-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-link {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer a {
+  text-decoration: none;
+  color: whitesmoke;
+}
