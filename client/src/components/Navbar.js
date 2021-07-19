@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <header>
       <div className='container-nav'>
-        <h2 className='title'>Portfolio</h2>
+        <h2 className='logo'>Portfolio</h2>
         <nav>
           <ul>
             <li>
