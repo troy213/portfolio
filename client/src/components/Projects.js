@@ -2,11 +2,11 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <div className='bg-projects'>
+    <section className='bg-projects'>
       <div className='container'>
         <div className='projects'>
           <h2 className='text-center'>Projects</h2>
-          <p>
+          <p className='text-center'>
             Here, I will put all of my upcoming projects like blogs, computer
             science stuff, and many more!
           </p>
@@ -18,7 +18,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

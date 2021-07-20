@@ -2,10 +2,10 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='bg-footer'>
+    <section className='bg-footer'>
       <div className='container'>
         <footer>
-          <p className='text-center'>
+          <p className='text-center text-white'>
             <em>
               There's a lot of good cafe in Southern Jakarta. I love coffee!
               maybe we can get in touch. Instagram message work best!
@@ -42,12 +42,12 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <p className='copyright text-center'>
+          <p className='copyright text-center text-white'>
             Copyright &copy; 2021 Tritera Erlangga. All Rights Reserved
           </p>
         </footer>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -2,10 +2,10 @@ import React from 'react'
 
 const Experiences = () => {
   return (
-    <div className='bg-experiences'>
+    <section className='bg-experiences'>
       <div className='container'>
         <div className='experiences'>
-          <h2 className='text-center'>Experiences</h2>
+          <h2 className='text-center bluish'>Experiences</h2>
           <p className='text-center'>
             <em>
               "The single most powerful asset we all have is our mind. if it is
@@ -16,11 +16,14 @@ const Experiences = () => {
             </em>
           </p>
           <hr />
-          <h3>
-            <i className='fa fa-book'>&nbsp;</i>Educations
-          </h3>
+          <button className='dropdown bluish'>
+            <p className='dropdown-title'>
+              <i className='fa fa-book'>&nbsp;</i>Educations
+            </p>
+            <i className='fa fa-chevron-down'></i>
+          </button>
           <div className='experiences-info'>
-            <div>
+            <div className='experiences-main'>
               <p className='experiences-main-title'>Niomic</p>
               <p className='experiences-main-year'>
                 <em>2019 - current</em>
@@ -44,7 +47,7 @@ const Experiences = () => {
             </div>
           </div>
           <div className='experiences-info'>
-            <div>
+            <div className='experiences-main'>
               <p className='experiences-main-title'>Budiluhur University</p>
               <p className='experiences-main-year'>
                 <em>Sep 2014 - Mar 2018</em>
@@ -69,7 +72,7 @@ const Experiences = () => {
             </div>
           </div>
           <div className='experiences-info'>
-            <div>
+            <div className='experiences-main'>
               <p className='experiences-main-title'>SMAN 9 Tangerang Selatan</p>
               <p className='experiences-main-year'>
                 <em>2010 - 2013</em>
@@ -89,12 +92,14 @@ const Experiences = () => {
               </p>
             </div>
           </div>
-
-          <h3>
-            <i className='fa fa-briefcase'>&nbsp;</i>Career
-          </h3>
+          <button className='dropdown bluish'>
+            <p className='dropdown-title'>
+              <i className='fa fa-briefcase'>&nbsp;</i>Career
+            </p>
+            <i className='fa fa-chevron-down'></i>
+          </button>
           <div className='experiences-info'>
-            <div>
+            <div className='experiences-main'>
               <p className='experiences-main-title'>ICT</p>
               <p className='experiences-main-year'>
                 <em>2014 - current</em>
@@ -118,7 +123,7 @@ const Experiences = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

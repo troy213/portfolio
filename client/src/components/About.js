@@ -3,11 +3,11 @@ import avatar from '../assets/Hero.jpg'
 
 const About = () => {
   return (
-    <div className='bg-about'>
+    <section className='bg-about'>
       <div className='container'>
         <div className='about'>
-          <h2 className='text-center'>About Me</h2>
-          <h3 className='text-center'>
+          <h2 className='text-center bluish'>About Me</h2>
+          <h3 className='text-center bluish'>
             <em>I'm a Junior Web Developer</em>
           </h3>
           <p className='text-justify'>
@@ -24,17 +24,18 @@ const About = () => {
             <img src={avatar} alt='about-img' className='about-avatar' />
             <div className='about-info-details'>
               <div className='center'>
-                <h3>Details</h3>
+                <h3 className='bluish'>Details</h3>
               </div>
               <p>
-                <i className='fa fa-user'>&nbsp;</i>Name: Tritera Erlangga
+                <i className='fa fa-user bluish'>&nbsp;</i>Name: Tritera
+                Erlangga
               </p>
               <p>
-                <i className='fa fa-calendar'>&nbsp;</i>Age: 25 Years
+                <i className='fa fa-calendar bluish'>&nbsp;</i>Age: 25 Years
               </p>
               <p>
-                <i className='fa fa-map-marker'>&nbsp;</i>Location: Pamulang,
-                South Tangerang, Banten, Indonesia
+                <i className='fa fa-map-marker bluish'>&nbsp;</i>Location:
+                Pamulang, South Tangerang, Banten, Indonesia
               </p>
             </div>
           </div>
@@ -54,7 +55,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
