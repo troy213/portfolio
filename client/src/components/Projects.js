@@ -2,10 +2,10 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <section className='bg-projects'>
+    <section className='bg-projects' id='projects'>
       <div className='container'>
         <div className='projects'>
-          <h2 className='text-center'>Projects</h2>
+          <h2 className='text-center bluish'>Projects</h2>
           <p className='text-center'>
             Here, I will put all of my upcoming projects like blogs, computer
             science stuff, and many more!

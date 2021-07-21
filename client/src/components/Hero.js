@@ -4,7 +4,7 @@ import blob from '../assets/blob.svg'
 
 const Hero = () => {
   return (
-    <section className='bg-hero'>
+    <section className='bg-hero' id='home'>
       <div className='container'>
         <Navbar />
         <div className='hero'>
@@ -13,7 +13,7 @@ const Hero = () => {
               <h1 className='hero-info-title bluish'>
                 Hi, I'm Tritera Erlangga
               </h1>
-              <h2 className='hero-info-subtitle bluish'>
+              <h2 className='hero-info-subtitle bluish-2'>
                 Junior Web Developer
               </h2>
               <p>
@@ -22,7 +22,9 @@ const Hero = () => {
                 Computer Science on 2018.
               </p>
               <div className='center'>
-                <button className='btn btn-primary btn-hero'>Contact</button>
+                <a href='#contact'>
+                  <button className='btn btn-primary btn-hero'>Contact</button>
+                </a>
               </div>
             </div>
             <div className='hero-info-blob center'>

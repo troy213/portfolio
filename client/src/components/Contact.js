@@ -2,17 +2,23 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <section className='bg-contact'>
+    <section className='bg-contact' id='contact'>
       <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
           <div className='center'>
             <div className='grid-container'>
-              <label htmlFor='contact-name'>Name</label>
+              <label htmlFor='contact-name'>
+                <i className='fa fa-user'>&nbsp;</i>Name
+              </label>
               <input type='text' id='contact-name' />
-              <label htmlFor='contact-email'>Email</label>
+              <label htmlFor='contact-email'>
+                <i className='fa fa-envelope'>&nbsp;</i>Email
+              </label>
               <input type='text' id='contact-email' />
-              <label htmlFor='contact-message'>Message</label>
+              <label htmlFor='contact-message'>
+                <i className='fa fa-comment'>&nbsp;</i>Message
+              </label>
               <textarea
                 name='contact-message'
                 id='contact-message'

@@ -1,14 +1,16 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const mysql = require('mysql')
 require('dotenv').config()
 PORT = process.env.PORT
 
+const expRouter = require('./router/exp_router')
+
 app.use([cors(), express.urlencoded({ extended: false }), express.json()])
+app.use('/experiences', expRouter)
 
 app.get('/', (req, res) => {
-  res.status(200).json({ success: true })
+  res.status(200).json({ success: true, message: 'Hello from the server' })
 })
 
 app.all('*', (req, res) => {

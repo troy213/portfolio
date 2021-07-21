@@ -73,6 +73,10 @@ button {
   color: var(--solid-bluish-0);
 }
 
+.bluish-2 {
+  color: var(--solid-bluish-2);
+}
+
 .orangish {
   color: var(--solid-orangish-0);
 }
@@ -210,6 +214,11 @@ header a {
   text-align: center;
 }
 
+.hero-info-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
 .hero-info p {
   text-align: justify;
 }
@@ -255,16 +264,16 @@ header a {
 
 /* ================= EXPERIENCES ================= */
 
-.bg-experiences {
+/* .bg-experiences {
   padding: var(--xl) 0;
   background-image: linear-gradient(
     rgba(255, 255, 255, 1),
     rgba(87, 108, 219, 0.4)
   );
-}
+} */
 
 .experiences {
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .experiences-info {
@@ -281,12 +290,23 @@ header a {
 }
 
 .experiences-main-title {
+  margin-bottom: 0;
   font-size: 1.125rem;
   font-weight: bold;
+  color: var(--solid-bluish-0);
+}
+
+.experiences-main-year {
+  font-size: 0.875rem;
 }
 
 .experiences-desc-title {
+  color: var(--solid-bluish-0);
   font-weight: bold;
+}
+
+.experiences-desc-location i {
+  color: var(--solid-bluish-0);
 }
 
 /* ================= SKILLS ================= */
@@ -317,13 +337,13 @@ header a {
 
 /* ================= PROJECTS ================= */
 
-.bg-projects {
+/* .bg-projects {
   padding: var(--xl) 0;
   background-image: linear-gradient(
     rgba(87, 108, 219, 0.4),
     rgba(87, 108, 219, 0.8)
   );
-}
+} */
 
 .projects-card {
   display: flex;
@@ -352,6 +372,17 @@ header a {
 
 .btn-contact {
   margin: var(--l) 0;
+}
+
+.grid-container i {
+  color: var(--solid-bluish-0);
+}
+
+#contact-name,
+#contact-email,
+#contact-message {
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 /* ================= FOOTER ================= */
@@ -421,6 +452,10 @@ footer a {
     text-align: left;
   }
 
+  .experiences-desc-title {
+    font-size: 1.125rem;
+  }
+
   .skills-item {
     flex-direction: row;
     align-items: center;
@@ -432,6 +467,7 @@ footer a {
 
   .grid-container {
     grid-template-columns: 1fr 3fr;
+    row-gap: 1em;
     width: 70%;
   }
 
