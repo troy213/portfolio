@@ -1,21 +1,41 @@
 import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
 
-const educations = 'http://localhost:5000/experiences/Educations'
-const careers = 'http://localhost:5000/experiences/Careers'
+const educations = '/experiences/Educations'
+const careers = '/experiences/Careers'
 
 const Experiences = () => {
-  const [educationsVisible, setEducationsVisible] = useState(false)
-  const [careersVisible, setCareersVisible] = useState(false)
+  const [educationsVisible, setEducationsVisible] = useState(true)
+  const [careersVisible, setCareersVisible] = useState(true)
 
   const dataEducations = useFetch(educations)
   const dataCareers = useFetch(careers)
 
+  const handleChevron = (value) => {
+    if (value === 'educations') {
+      setEducationsVisible(!educationsVisible)
+      const expEduChevron = document.getElementById('exp-educations-chevron')
+      if (educationsVisible) {
+        expEduChevron.className = 'fa fa-chevron-down'
+      } else {
+        expEduChevron.className = 'fa fa-chevron-up'
+      }
+    } else if (value === 'careers') {
+      setCareersVisible(!careersVisible)
+      const expCarChevron = document.getElementById('exp-careers-chevron')
+      if (careersVisible) {
+        expCarChevron.className = 'fa fa-chevron-down'
+      } else {
+        expCarChevron.className = 'fa fa-chevron-up'
+      }
+    }
+  }
+
   if (dataEducations.isLoading) {
-    return <h1>Loading...</h1>
+    return <h1 className='text-center'>Loading...</h1>
   }
   if (dataEducations.isError) {
-    return <h1>Error...</h1>
+    return <h1 className='text-center'>Error...</h1>
   }
 
   return (
@@ -35,12 +55,12 @@ const Experiences = () => {
           <hr />
           <button
             className='dropdown bluish'
-            onClick={() => setEducationsVisible(!educationsVisible)}
+            onClick={() => handleChevron('educations')}
           >
             <p className='dropdown-title'>
               <i className='fa fa-book'>&nbsp;</i>Educations
             </p>
-            <i className='fa fa-chevron-down'></i>
+            <i className='fa fa-chevron-up' id='exp-educations-chevron'></i>
           </button>
           {educationsVisible === true ? (
             <>
@@ -70,12 +90,13 @@ const Experiences = () => {
           )}
           <button
             className='dropdown bluish'
-            onClick={() => setCareersVisible(!careersVisible)}
+            onClick={() => handleChevron('careers')}
           >
             <p className='dropdown-title'>
-              <i className='fa fa-briefcase'>&nbsp;</i>Careers
+              <i className='fa fa-briefcase'>&nbsp;</i>
+              Careers
             </p>
-            <i className='fa fa-chevron-down'></i>
+            <i className='fa fa-chevron-up' id='exp-careers-chevron'></i>
           </button>
           {careersVisible === true ? (
             <>

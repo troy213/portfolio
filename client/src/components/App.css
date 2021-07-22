@@ -134,6 +134,11 @@ button {
   font-weight: bold;
 }
 
+.mp-0 {
+  margin: 0;
+  padding: 0;
+}
+
 /* ================= LAYOUT ================= */
 
 .container {
@@ -272,9 +277,9 @@ header a {
   );
 } */
 
-.experiences {
-  /* min-height: 100vh; */
-}
+/* .experiences {
+  min-height: 100vh;
+} */
 
 .experiences-info {
   display: flex;
@@ -311,6 +316,10 @@ header a {
 
 /* ================= SKILLS ================= */
 
+.skills .dropdown {
+  margin-top: 1em;
+}
+
 .bg-skills {
   padding: var(--xl) 0;
 }
@@ -322,7 +331,7 @@ header a {
 }
 
 .progress-bar {
-  background-color: #ddd;
+  background-color: rgba(168, 180, 243, 0.4);
   height: 1.5em;
   border-radius: 5px;
   width: 100%;
@@ -330,9 +339,14 @@ header a {
 
 .progress-bar-value {
   height: 100%;
-  width: 70%;
-  border-radius: inherit;
+  /* width: 70%; */
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   background: linear-gradient(var(--solid-bluish-0), var(--solid-purplish-0));
+}
+
+.progress-bar-value-max {
+  border-radius: 5px;
 }
 
 /* ================= PROJECTS ================= */
@@ -381,6 +395,8 @@ header a {
 #contact-name,
 #contact-email,
 #contact-message {
+  background: rgba(168, 180, 243, 0.15);
+  min-height: 25px;
   border: 1px solid black;
   border-radius: 3px;
 }
@@ -389,7 +405,7 @@ header a {
 
 .bg-footer {
   padding: var(--xl) 0 var(--s) 0;
-  background: #576cdb;
+  background: linear-gradient(var(--solid-purplish-0), var(--solid-bluish-0));
 }
 
 .btn-footer {
