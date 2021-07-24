@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from './Navbar'
 import Hero from './Hero'
 import About from './About'
 import Experiences from './Experiences'
@@ -11,7 +12,8 @@ import './App.css'
 
 const App = () => {
   return (
-    <>
+    <div id='app'>
+      <Navbar />
       <Hero />
       <About />
       <Experiences />
@@ -19,7 +21,7 @@ const App = () => {
       <Projects />
       <Contact />
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -1,12 +1,10 @@
 import React from 'react'
-import Navbar from './Navbar'
 import blob from '../assets/blob.svg'
 
 const Hero = () => {
   return (
-    <section className='bg-hero' id='home'>
+    <section className='bg-hero bg-light' id='home'>
       <div className='container'>
-        <Navbar />
         <div className='hero'>
           <div className='hero-info'>
             <div className='hero-info-desc'>

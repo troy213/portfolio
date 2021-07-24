@@ -12,9 +12,9 @@ const Projects = () => {
           </p>
           <hr />
           <div className='projects-card'>
-            <div className='projects-card-item'>card</div>
-            <div className='projects-card-item'>card</div>
-            <div className='projects-card-item'>card</div>
+            <div className='projects-card-item'></div>
+            <div className='projects-card-item'></div>
+            <div className='projects-card-item'></div>
           </div>
         </div>
       </div>

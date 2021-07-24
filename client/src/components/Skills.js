@@ -135,9 +135,18 @@ const SkillsInfo = (props) => {
     <div className='skills-item'>
       <p>{props.title}</p>
       <div className='progress-bar'>
-        <div className='progress-bar-value' style={{ width: props.value }}>
-          <p className='text-white text-center mp-0'>{props.value}</p>
-        </div>
+        {Number(props.value.substr(0, props.value.length - 1)) > 98 ? (
+          <div
+            className='progress-bar-value-max'
+            style={{ width: props.value }}
+          >
+            <p className='text-white text-center mp-0'>{props.value}</p>
+          </div>
+        ) : (
+          <div className='progress-bar-value' style={{ width: props.value }}>
+            <p className='text-white text-center mp-0'>{props.value}</p>
+          </div>
+        )}
       </div>
     </div>
   )
