@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import Modal from './Modal'
 import axios from 'axios'
 
 const Contact = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [modalValue, setModalValue] = useState('Hello World')
 
   const sendData = (e) => {
     if (name && email && message) {
@@ -14,15 +16,23 @@ const Contact = () => {
           email: email,
           message: message,
         })
-        .catch((err) => console.log(err))
+        .then(() => {
+          setModalValue('Message has been sent successfully!')
+          document.getElementById('modal').style.display = 'block'
+        })
+        .catch(() => {
+          setModalValue('Something went wrong :(')
+          document.getElementById('modal').style.display = 'block'
+        })
     } else {
-      e.preventDefault()
-      alert('Please fill the blank!')
+      setModalValue('Please fill the blank')
+      document.getElementById('modal').style.display = 'block'
     }
   }
 
   return (
     <section className='bg-contact' id='contact'>
+      <Modal value={modalValue} />
       <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>

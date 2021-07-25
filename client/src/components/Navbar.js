@@ -4,9 +4,14 @@ const Navbar = () => {
   const [menuVisible, setMenuVisible] = useState(false)
   const [theme, setTheme] = useState('light')
   const [size, setSize] = useState(window.innerWidth)
+  const [y, setY] = useState(window.pageYOffset)
 
   const getSize = () => {
     setSize(window.innerWidth)
+  }
+
+  const getY = () => {
+    setY(window.pageYOffset)
   }
 
   const changeTheme = () => {
@@ -25,10 +30,26 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('resize', getSize)
-  }, [])
+    let listener = document.addEventListener('scroll', getY)
+    if (window.pageYOffset > document.getElementById('header').offsetTop) {
+      document.getElementById('header').style.background = '#fff'
+      document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
+        value.style.color = '#333'
+      })
+    } else {
+      document.getElementById('header').style.background = 'none'
+      document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
+        value.style.color = 'whitesmoke'
+      })
+    }
+
+    return () => {
+      document.removeEventListener('scroll', listener)
+    }
+  }, [y])
 
   return (
-    <header>
+    <header id='header'>
       <div className='container-nav'>
         <div className='logo'>
           <a href='/'>
