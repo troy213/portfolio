@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [menuVisible, setMenuVisible] = useState(false)
   const [theme, setTheme] = useState('light')
   const [size, setSize] = useState(window.innerWidth)
@@ -15,38 +16,70 @@ const Navbar = () => {
   }
 
   const changeTheme = () => {
+    props.onChangeTheme(theme)
     if (theme === 'light') {
       setTheme('dark')
       document.querySelector('#app').className = 'dark'
       document.querySelector('#home').className = 'bg-hero bg-dark'
       document.querySelector('#toggler').className = 'fa fa-sun-o'
+      document.querySelectorAll('.contact-input').forEach((value) => {
+        value.style.color = 'whitesmoke'
+      })
     } else {
       setTheme('light')
       document.querySelector('#app').className = 'home'
       document.querySelector('#home').className = 'bg-hero bg-light'
       document.querySelector('#toggler').className = 'fa fa-moon-o'
+      document.querySelectorAll('.contact-input').forEach((value) => {
+        value.style.color = '#333'
+      })
     }
   }
 
   useEffect(() => {
     window.addEventListener('resize', getSize)
-    let listener = document.addEventListener('scroll', getY)
-    if (window.pageYOffset > document.getElementById('header').offsetTop) {
-      document.getElementById('header').style.background = '#fff'
-      document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
-        value.style.color = '#333'
-      })
+    window.addEventListener('scroll', getY)
+
+    if (theme === 'light') {
+      if (
+        menuVisible ||
+        window.pageYOffset > document.getElementById('header').offsetTop
+      ) {
+        document.getElementById('header').style.background = '#fff'
+        document.getElementById('header').style.borderBottom = '1px solid #ddd'
+        document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
+          value.style.color = '#333'
+        })
+      } else {
+        document.getElementById('header').style.background = 'none'
+        document.getElementById('header').style.borderBottom = 'none'
+        document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
+          value.style.color = 'whitesmoke'
+        })
+      }
     } else {
-      document.getElementById('header').style.background = 'none'
-      document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
-        value.style.color = 'whitesmoke'
-      })
+      if (
+        menuVisible ||
+        window.pageYOffset > document.getElementById('header').offsetTop
+      ) {
+        document.getElementById('header').style.background = '#333'
+        document.getElementById('header').style.borderBottom = '1px solid #555'
+        document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
+          value.style.color = 'whitesmoke'
+        })
+      } else {
+        document.getElementById('header').style.background = 'none'
+        document.getElementById('header').style.borderBottom = 'none'
+        document.querySelectorAll('.logo p, li a, li i').forEach((value) => {
+          value.style.color = 'whitesmoke'
+        })
+      }
     }
 
     return () => {
-      document.removeEventListener('scroll', listener)
+      window.removeEventListener('scroll', getY)
     }
-  }, [y])
+  }, [y, theme, menuVisible])
 
   return (
     <header id='header'>
@@ -90,41 +123,50 @@ const Navbar = () => {
         </nav>
       </div>
       {menuVisible === true && size < 721 ? (
-        <div className='nav-menu' style={{ width: { size } }}>
+        <div
+          className={
+            theme === 'dark'
+              ? 'nav-menu dark border-bottom-dark'
+              : 'nav-menu border-bottom-light'
+          }
+          id='nav-menu'
+        >
           <div className='nav-menu-item'>
             <a href='#home'>
               <i className='fa fa-home'></i>
-              <p>Home</p>
+              <p className={theme === 'dark' ? 'text-white' : ''}>Home</p>
             </a>
           </div>
           <div className='nav-menu-item'>
             <a href='#about'>
               <i className='fa fa-user'></i>
-              <p>About</p>
+              <p className={theme === 'dark' ? 'text-white' : ''}>About</p>
             </a>
           </div>
           <div className='nav-menu-item'>
             <a href='#experiences'>
               <i className='fa fa-graduation-cap'></i>
-              <p>Experiences</p>
+              <p className={theme === 'dark' ? 'text-white' : ''}>
+                Experiences
+              </p>
             </a>
           </div>
           <div className='nav-menu-item'>
             <a href='#skills'>
               <i className='fa fa-flask'></i>
-              <p>Skills</p>
+              <p className={theme === 'dark' ? 'text-white' : ''}>Skills</p>
             </a>
           </div>
           <div className='nav-menu-item'>
             <a href='#projects'>
               <i className='fa fa-cogs'></i>
-              <p>Projects</p>
+              <p className={theme === 'dark' ? 'text-white' : ''}>Projects</p>
             </a>
           </div>
           <div className='nav-menu-item'>
             <a href='#contact'>
               <i className='fa fa-phone'></i>
-              <p>Contact</p>
+              <p className={theme === 'dark' ? 'text-white' : ''}>Contact</p>
             </a>
           </div>
         </div>
@@ -135,4 +177,17 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+  return state
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChangeTheme: (value) => {
+      const action = { type: 'CHANGE_THEME', payload: value }
+      dispatch(action)
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

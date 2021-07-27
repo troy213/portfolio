@@ -121,7 +121,7 @@ button {
 }
 
 .text-white {
-  color: #f5f5f5;
+  color: whitesmoke !important;
 }
 
 .dropdown {
@@ -131,6 +131,14 @@ button {
   border: 0;
   background: none;
   width: 100%;
+}
+
+.border-bottom-light {
+  border-bottom: 1px solid #ddd;
+}
+
+.border-bottom-dark {
+  border-bottom: 1px solid #888;
 }
 
 .dropdown-title {
@@ -155,7 +163,7 @@ button {
 /* ================= HOME ================= */
 
 .dark {
-  background: #333;
+  background: #333 !important;
   color: whitesmoke;
 }
 
@@ -165,7 +173,7 @@ header {
   position: fixed;
   width: 100%;
   padding: var(--s) 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .container-nav {
@@ -224,10 +232,12 @@ nav,
 }
 
 .nav-menu {
+  width: 100%;
   padding: 1.5em 0.5em;
   position: absolute;
   background: white;
-  border-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -255,27 +265,26 @@ nav,
 /* ================= HERO ================= */
 
 .bg-hero {
+  position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.bg-dark {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(51, 51, 51, 1)),
-    url('../assets/notebook-1280538.jpg');
-}
-
-.bg-light {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 1)),
-    url('../assets/notebook-1280538.jpg');
-}
-
-.hero {
   height: 100vh;
+}
+
+.bg-hero .container {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: var(--m);
+}
+
+.bg-dark {
+  background-image: url('../assets/Background.png');
+}
+
+.bg-light {
+  background-image: url('../assets/Background.png');
 }
 
 .hero-info {
@@ -283,11 +292,17 @@ nav,
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
+  padding-top: 4em;
+  z-index: 1;
 }
 
-.hero-info-blob .blob {
+.blob {
+  position: absolute;
+  margin: -1px;
+  bottom: 0;
   width: 100%;
-  max-width: 350px;
+  max-width: 980px;
+  z-index: 0;
 }
 
 .hero-info-title,
@@ -591,6 +606,7 @@ footer a {
 
   .hero-info {
     flex-direction: row;
+    padding-top: 0;
   }
 
   .hero-info-desc {

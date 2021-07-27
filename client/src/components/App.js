@@ -7,14 +7,15 @@ import Skills from './Skills'
 import Projects from './Projects'
 import Contact from './Contact'
 import Footer from './Footer'
+import store from '../store'
 import 'font-awesome/css/font-awesome.min.css'
 import './App.css'
 
 const App = () => {
   return (
     <div id='app'>
-      <Navbar />
-      <Hero />
+      <Navbar store={store} />
+      <Hero store={store} />
       <About />
       <Experiences />
       <Skills />

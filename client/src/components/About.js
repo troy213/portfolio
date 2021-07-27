@@ -16,13 +16,13 @@ const About = () => {
             <em>I'm a Junior Web Developer</em>
           </h3>
           <p className='text-justify'>
-            I love traveling, acoustic, photography and coffee. I recently
-            graduated with a Computer Science Degree and had an interest in Web
-            Development which offers me the opportunity to develop new skills
-            while strengthening those I already possess. And with more than 7
-            years of working experience as an Office Administrator had enabled
-            me to develop good organizational skills. able to work under
-            pressure and easily adapting to any working environment.
+            I love traveling, acoustic, photography and coffee. I graduated with
+            a Computer Science Degree and had an interest in Web Development
+            which offers me the opportunity to develop new skills while
+            strengthening those I already possess. And with more than 7 years of
+            working experience as an Office Administrator had enabled me to
+            develop good organizational skills. able to work under pressure and
+            easily adapting to any working environment.
           </p>
           <hr />
           <div className='about-info'>
