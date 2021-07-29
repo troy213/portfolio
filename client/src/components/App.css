@@ -106,10 +106,12 @@ button {
 
 .btn-primary {
   background: #576cdb;
+  transition: background 200ms ease;
 }
 
 .btn-secondary {
   background: #ffcc4f;
+  transition: background 200ms ease;
 }
 
 .text-center {
@@ -122,6 +124,10 @@ button {
 
 .text-white {
   color: whitesmoke !important;
+}
+
+.text-black {
+  color: #333;
 }
 
 .dropdown {
@@ -151,6 +157,25 @@ button {
   padding: 0;
 }
 
+.dark {
+  background: #333 !important;
+  color: whitesmoke;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+  will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
 /* ================= LAYOUT ================= */
 
 .container {
@@ -158,13 +183,7 @@ button {
   width: 80%;
   margin: 0 auto;
   max-width: 980px;
-}
-
-/* ================= HOME ================= */
-
-.dark {
-  background: #333 !important;
-  color: whitesmoke;
+  animation: fadein 1000ms ease;
 }
 
 /* ================= NAVBAR ================= */
@@ -247,6 +266,7 @@ nav,
 .nav-menu-item {
   width: 100px;
   padding: 1em 0;
+  transition: transform 500ms ease;
 }
 
 .nav-menu-item i {
@@ -397,7 +417,7 @@ nav,
 }
 
 .experiences-main-year {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 .experiences-desc-title {
@@ -474,6 +494,8 @@ nav,
   border-radius: 5px;
   height: 300px;
   width: 200px;
+  cursor: pointer;
+  transition: transform 500ms;
 }
 
 /* ================= CONTACT ================= */
@@ -504,6 +526,10 @@ nav,
   padding: 0 0.5em;
   border: 1px solid black;
   border-radius: 3px;
+}
+
+.danger {
+  border: 3px solid rgba(255, 0, 0, 0.4) !important;
 }
 
 /* ================= FOOTER ================= */
@@ -560,9 +586,9 @@ footer a {
 .modal-content {
   position: absolute;
   padding: 1.25em;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -50%);
   border-radius: 5px;
   background: whitesmoke;
   width: 70%;
@@ -583,9 +609,63 @@ footer a {
   cursor: pointer;
 }
 
+/* ================= SCROLL ================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ================= ANIMATION ================= */
+
+.btn-primary:hover {
+  background: var(--solid-bluish-4);
+}
+
+.btn-primary:active {
+  background: var(--solid-bluish-1);
+}
+
+.btn-secondary:hover {
+  background: var(--solid-orangish-4);
+}
+
+.btn-secondary:active {
+  background: var(--solid-orangish-1);
+}
+
+.nav-menu-item:hover {
+  transform: scale(1.1);
+}
+
+.projects-card-item:hover {
+  transform: scale(1.1);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* ================= SCREEN BREAKPOINT ================= */
 
-@media (min-width: 721px) {
+@media (min-width: 651px) {
   header {
     padding: 0;
   }
@@ -603,6 +683,10 @@ footer a {
   }
 
   /* ----------hero---------- */
+
+  /* .bg-hero {
+    max-height: 600px;
+  } */
 
   .hero-info {
     flex-direction: row;

@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 
 const initialState = {
   theme: 'light',
+  modalValue: '',
 }
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,8 @@ const reducer = (state = initialState, action) => {
       } else {
         return Object.assign({}, state, { theme: 'light' })
       }
+    case 'CHANGE_MODAL_VALUE':
+      return Object.assign({}, state, { modalValue: action.payload })
     default:
       return state
   }

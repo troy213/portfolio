@@ -4,10 +4,6 @@ import blobLight from '../assets/blob-light.svg'
 import blobDark from '../assets/blob-dark.svg'
 
 const Hero = (props) => {
-  const test = () => {
-    console.log(props.theme)
-  }
-
   return (
     <section className='bg-hero bg-light' id='home'>
       <div className='container'>
@@ -25,10 +21,8 @@ const Hero = (props) => {
               Computer Science on 2018.
             </p>
             <div className='center'>
-              <a href='#home'>
-                <button className='btn btn-primary btn-hero' onClick={test}>
-                  Contact
-                </button>
+              <a href='#contact'>
+                <button className='btn btn-secondary btn-hero'>Contact</button>
               </a>
             </div>
           </div>

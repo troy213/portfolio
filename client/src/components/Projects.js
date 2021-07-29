@@ -1,6 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const Projects = () => {
+const Projects = (props) => {
+  const test = () => {
+    props.onChangeModalValue('Coming Soon!')
+    document.getElementById('modal').style.display = 'block'
+  }
+
   return (
     <section className='bg-projects' id='projects'>
       <div className='container'>
@@ -12,9 +18,9 @@ const Projects = () => {
           </p>
           <hr />
           <div className='projects-card'>
-            <div className='projects-card-item'></div>
-            <div className='projects-card-item'></div>
-            <div className='projects-card-item'></div>
+            <div className='projects-card-item' onClick={test}></div>
+            <div className='projects-card-item' onClick={test}></div>
+            <div className='projects-card-item' onClick={test}></div>
           </div>
         </div>
       </div>
@@ -22,4 +28,17 @@ const Projects = () => {
   )
 }
 
-export default Projects
+const mapStateToProps = (state) => {
+  return state
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChangeModalValue: (value) => {
+      const action = { type: 'CHANGE_MODAL_VALUE', payload: value }
+      dispatch(action)
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Projects)

@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import Modal from './Modal'
+import { connect } from 'react-redux'
 import axios from 'axios'
 
-const Contact = () => {
+const Contact = (props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [modalValue, setModalValue] = useState('Hello World')
 
   const sendData = (e) => {
     if (name && email && message) {
@@ -17,22 +16,28 @@ const Contact = () => {
           message: message,
         })
         .then(() => {
-          setModalValue('Message has been sent successfully!')
+          props.onChangeModalValue('Message has been sent successfully!')
           document.getElementById('modal').style.display = 'block'
         })
         .catch(() => {
-          setModalValue('Something went wrong :(')
+          props.onChangeModalValue('Something went wrong :(')
           document.getElementById('modal').style.display = 'block'
         })
     } else {
-      setModalValue('Please fill the blank')
+      document.querySelectorAll('.contact-input').forEach((value) => {
+        if (value.value === '') {
+          value.className = 'contact-input danger'
+        } else {
+          value.className = 'contact-input'
+        }
+      })
+      props.onChangeModalValue('Please fill the blank')
       document.getElementById('modal').style.display = 'block'
     }
   }
 
   return (
     <section className='bg-contact' id='contact'>
-      <Modal value={modalValue} />
       <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
@@ -48,6 +53,7 @@ const Contact = () => {
                 id='contact-name'
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                maxLength='50'
                 required
               />
               <label htmlFor='contact-email'>
@@ -60,6 +66,7 @@ const Contact = () => {
                 id='contact-email'
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
+                maxLength='50'
                 required
               />
               <label htmlFor='contact-message'>
@@ -73,6 +80,7 @@ const Contact = () => {
                 rows='10'
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
+                maxLength='1023'
                 required
               ></textarea>
               <button
@@ -89,4 +97,17 @@ const Contact = () => {
   )
 }
 
-export default Contact
+const mapStateToProps = (state) => {
+  return state
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onChangeModalValue: (value) => {
+      const action = { type: 'CHANGE_MODAL_VALUE', payload: value }
+      dispatch(action)
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact)

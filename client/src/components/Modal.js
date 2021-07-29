@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
 const Modal = (props) => {
   const [modal, setModal] = useState(null)
@@ -20,15 +21,23 @@ const Modal = (props) => {
   return (
     <div className='modal' id='modal' onClick={handleModal}>
       <div className='modal-content'>
-        <span className='close' onClick={closeModal}>
+        <span className='close text-black' onClick={closeModal}>
           &times;
         </span>
-        <div className='modal-value'>
-          <p>{props.value}</p>
+        <div className='modal-value text-black'>
+          <p>{props.modalValue}</p>
         </div>
       </div>
     </div>
   )
 }
 
-export default Modal
+const mapStateToProps = (state) => {
+  return state
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal)

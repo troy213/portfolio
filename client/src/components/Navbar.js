@@ -20,7 +20,6 @@ const Navbar = (props) => {
     if (theme === 'light') {
       setTheme('dark')
       document.querySelector('#app').className = 'dark'
-      document.querySelector('#home').className = 'bg-hero bg-dark'
       document.querySelector('#toggler').className = 'fa fa-sun-o'
       document.querySelectorAll('.contact-input').forEach((value) => {
         value.style.color = 'whitesmoke'
@@ -28,7 +27,6 @@ const Navbar = (props) => {
     } else {
       setTheme('light')
       document.querySelector('#app').className = 'home'
-      document.querySelector('#home').className = 'bg-hero bg-light'
       document.querySelector('#toggler').className = 'fa fa-moon-o'
       document.querySelectorAll('.contact-input').forEach((value) => {
         value.style.color = '#333'
@@ -39,6 +37,10 @@ const Navbar = (props) => {
   useEffect(() => {
     window.addEventListener('resize', getSize)
     window.addEventListener('scroll', getY)
+
+    if (size > 650) {
+      setMenuVisible(false)
+    }
 
     if (theme === 'light') {
       if (
@@ -78,8 +80,9 @@ const Navbar = (props) => {
 
     return () => {
       window.removeEventListener('scroll', getY)
+      window.removeEventListener('resize', getSize)
     }
-  }, [y, theme, menuVisible])
+  }, [size, y, theme, menuVisible])
 
   return (
     <header id='header'>
@@ -122,7 +125,7 @@ const Navbar = (props) => {
           </ul>
         </nav>
       </div>
-      {menuVisible === true && size < 721 ? (
+      {menuVisible === true && size < 651 ? (
         <div
           className={
             theme === 'dark'
