@@ -7,8 +7,16 @@ const Contact = (props) => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const sendData = (e) => {
+  const sendData = () => {
     if (name && email && message) {
+      document.querySelectorAll('.contact-input').forEach((value) => {
+        if (value.value === '') {
+          value.className = 'contact-input danger'
+        } else {
+          value.className = 'contact-input'
+        }
+      })
+
       axios
         .post('/message', {
           name: name,

@@ -26,7 +26,36 @@ const Hero = (props) => {
               </a>
             </div>
           </div>
-          <div className='hero-info-blob center'></div>
+          <div className='hero-info-link'>
+            <a
+              href='https://www.facebook.com/dev.triteraerlangga/'
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              <i className='fa fa-facebook'></i>
+            </a>
+            <a
+              href='https://www.instagram.com/tritera.erlangga/'
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              <i className='fa fa-instagram'></i>
+            </a>
+            <a
+              href='https://github.com/troy213'
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              <i className='fa fa-github'></i>
+            </a>
+            <a
+              href='https://www.linkedin.com/in/tritera-erlangga-0ab7b5183/'
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              <i className='fa fa-linkedin'></i>
+            </a>
+          </div>
         </div>
       </div>
       <div className='center'>

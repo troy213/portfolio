@@ -252,6 +252,7 @@ nav,
 
 .nav-menu {
   width: 100%;
+
   padding: 1.5em 0.5em;
   position: absolute;
   background: white;
@@ -337,6 +338,10 @@ nav,
 
 .hero-info p {
   text-align: justify;
+}
+
+.hero-info-link a {
+  display: none;
 }
 
 .btn-hero {
@@ -654,6 +659,10 @@ footer a {
   transform: scale(1.1);
 }
 
+.hero-info-link a:hover {
+  transform: scale(1.2);
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -689,6 +698,7 @@ footer a {
   } */
 
   .hero-info {
+    align-items: stretch;
     flex-direction: row;
     padding-top: 0;
   }
@@ -697,7 +707,7 @@ footer a {
     margin-right: 1em;
   }
 
-  .hero-info-blob {
+  .hero-info-link {
     min-width: 50%;
   }
 
@@ -767,5 +777,22 @@ footer a {
 
   .footer-link-text {
     display: inline;
+  }
+}
+
+@media (min-width: 1071px) {
+  .hero-info-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    font-size: 1.5rem;
+  }
+
+  .hero-info-link a {
+    display: block;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: transform 200ms ease;
   }
 }
