@@ -7,6 +7,12 @@ const Contact = (props) => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
+  const validateEmail = (email) => {
+    const regex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return regex.test(String(email).toLowerCase())
+  }
+
   const sendData = () => {
     if (name && email && message) {
       document.querySelectorAll('.contact-input').forEach((value) => {
@@ -17,20 +23,25 @@ const Contact = (props) => {
         }
       })
 
-      axios
-        .post('/message', {
-          name: name,
-          email: email,
-          message: message,
-        })
-        .then(() => {
-          props.onChangeModalValue('Message has been sent successfully!')
-          document.getElementById('modal').style.display = 'block'
-        })
-        .catch(() => {
-          props.onChangeModalValue('Something went wrong :(')
-          document.getElementById('modal').style.display = 'block'
-        })
+      if (validateEmail(email)) {
+        axios
+          .post('/message', {
+            name: name,
+            email: email,
+            message: message,
+          })
+          .then(() => {
+            props.onChangeModalValue('Message has been sent successfully!')
+            document.getElementById('modal').style.display = 'block'
+          })
+          .catch(() => {
+            props.onChangeModalValue('Something went wrong :(')
+            document.getElementById('modal').style.display = 'block'
+          })
+      } else {
+        props.onChangeModalValue('Your E-mail address is invalid')
+        document.getElementById('modal').style.display = 'block'
+      }
     } else {
       document.querySelectorAll('.contact-input').forEach((value) => {
         if (value.value === '') {
