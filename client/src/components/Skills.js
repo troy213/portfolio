@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
+import SkillsInfo from './SkillsInfo'
 
 const computer = '/skills/computer'
 const other = '/skills/other'
 const language = '/skills/language'
 
-const Skills = () => {
+const Skills = (props) => {
   const [computerVisible, setComputerVisible] = useState(true)
   const [otherVisible, setOtherVisible] = useState(true)
   const [languageVisible, setLanguageVisible] = useState(true)
@@ -75,9 +76,15 @@ const Skills = () => {
           {computerVisible === true ? (
             <>
               {dataComputer.data.map((res) => {
-                const { id_skills, title, value } = res
+                const { id_skills, title, value, description } = res
                 return (
-                  <SkillsInfo key={id_skills} title={title} value={value} />
+                  <SkillsInfo
+                    store={props.store}
+                    key={id_skills}
+                    title={title}
+                    value={value}
+                    desc={description}
+                  />
                 )
               })}
             </>
@@ -95,9 +102,15 @@ const Skills = () => {
           {otherVisible === true ? (
             <>
               {dataOther.data.map((res) => {
-                const { id_skills, title, value } = res
+                const { id_skills, title, value, description } = res
                 return (
-                  <SkillsInfo key={id_skills} title={title} value={value} />
+                  <SkillsInfo
+                    store={props.store}
+                    key={id_skills}
+                    title={title}
+                    value={value}
+                    desc={description}
+                  />
                 )
               })}
             </>
@@ -115,9 +128,15 @@ const Skills = () => {
           {languageVisible === true ? (
             <>
               {dataLanguage.data.map((res) => {
-                const { id_skills, title, value } = res
+                const { id_skills, title, value, description } = res
                 return (
-                  <SkillsInfo key={id_skills} title={title} value={value} />
+                  <SkillsInfo
+                    store={props.store}
+                    key={id_skills}
+                    title={title}
+                    value={value}
+                    desc={description}
+                  />
                 )
               })}
             </>
@@ -127,28 +146,6 @@ const Skills = () => {
         </div>
       </div>
     </section>
-  )
-}
-
-const SkillsInfo = (props) => {
-  return (
-    <div className='skills-item'>
-      <p>{props.title}</p>
-      <div className='progress-bar'>
-        {Number(props.value.substr(0, props.value.length - 1)) > 98 ? (
-          <div
-            className='progress-bar-value-max'
-            style={{ width: props.value }}
-          >
-            <p className='text-white text-center mp-0'>{props.value}</p>
-          </div>
-        ) : (
-          <div className='progress-bar-value' style={{ width: props.value }}>
-            <p className='text-white text-center mp-0'>{props.value}</p>
-          </div>
-        )}
-      </div>
-    </div>
   )
 }
 

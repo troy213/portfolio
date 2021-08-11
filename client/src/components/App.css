@@ -477,6 +477,11 @@ nav,
   background: linear-gradient(var(--solid-bluish-0), var(--solid-purplish-0));
 }
 
+.skills-detail {
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
 /* ================= PROJECTS ================= */
 
 .bg-projects {
@@ -589,6 +594,8 @@ footer a {
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: row-reverse;
   position: absolute;
   padding: 1.25em;
   top: 50%;
@@ -597,7 +604,7 @@ footer a {
   border-radius: 5px;
   background: whitesmoke;
   width: 70%;
-  height: 200px;
+  min-height: 200px;
   max-width: 520px;
 }
 
@@ -605,11 +612,14 @@ footer a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  width: 100%;
+}
+
+.modal-value ul {
+  padding-left: 1.5em;
 }
 
 .close {
-  float: right;
   font-size: 1.75rem;
   cursor: pointer;
 }
@@ -661,6 +671,11 @@ footer a {
 
 .hero-info-link a:hover {
   transform: scale(1.2);
+}
+
+.skills-detail:hover {
+  transform: scale(1.1);
+  color: var(--solid-bluish-3);
 }
 
 @keyframes fadein {

@@ -25,7 +25,18 @@ const Modal = (props) => {
           &times;
         </span>
         <div className='modal-value text-black'>
-          <p>{props.modalValue}</p>
+          {typeof props.modalValue === 'object' ? (
+            <div>
+              <h3 className='text-center'>What I've Learned</h3>
+              <ul>
+                {props.modalValue.map((value, index) => {
+                  return <li key={index}>{value}</li>
+                })}
+              </ul>
+            </div>
+          ) : (
+            <p>{props.modalValue}</p>
+          )}
         </div>
       </div>
     </div>

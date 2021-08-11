@@ -21,7 +21,7 @@ const App = () => {
       <Hero store={store} />
       <About />
       <Experiences />
-      <Skills />
+      <Skills store={store} />
       <Projects store={store} />
       <Contact store={store} />
       <Footer />
