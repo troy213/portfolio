@@ -31,13 +31,6 @@ const Experiences = () => {
     }
   }
 
-  if (dataEducations.isLoading) {
-    return <h1 className='text-center'>Loading...</h1>
-  }
-  if (dataEducations.isError) {
-    return <h1 className='text-center'>Error...</h1>
-  }
-
   return (
     <section className='bg-experiences' id='experiences'>
       <div className='container'>
@@ -64,26 +57,32 @@ const Experiences = () => {
           </button>
           {educationsVisible === true ? (
             <>
-              {dataEducations.data.map((value) => {
-                const {
-                  id_exp,
-                  title,
-                  year,
-                  descTitle,
-                  description,
-                  location,
-                } = value
-                return (
-                  <ExpInfo
-                    key={id_exp}
-                    title={title}
-                    year={year}
-                    descTitle={descTitle}
-                    description={description}
-                    location={location}
-                  />
-                )
-              })}
+              {dataEducations.isLoading ? (
+                <Skeleton />
+              ) : dataEducations.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                dataEducations.data.map((value) => {
+                  const {
+                    id_exp,
+                    title,
+                    year,
+                    desc_title,
+                    description,
+                    location,
+                  } = value
+                  return (
+                    <ExpInfo
+                      key={id_exp}
+                      title={title}
+                      year={year}
+                      descTitle={desc_title}
+                      description={description}
+                      location={location}
+                    />
+                  )
+                })
+              )}
             </>
           ) : (
             <></>
@@ -100,26 +99,32 @@ const Experiences = () => {
           </button>
           {careersVisible === true ? (
             <>
-              {dataCareers.data.map((value) => {
-                const {
-                  id_exp,
-                  title,
-                  year,
-                  descTitle,
-                  description,
-                  location,
-                } = value
-                return (
-                  <ExpInfo
-                    key={id_exp}
-                    title={title}
-                    year={year}
-                    descTitle={descTitle}
-                    description={description}
-                    location={location}
-                  />
-                )
-              })}
+              {dataCareers.isLoading ? (
+                <Skeleton />
+              ) : dataCareers.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                dataCareers.data.map((value) => {
+                  const {
+                    id_exp,
+                    title,
+                    year,
+                    desc_title,
+                    description,
+                    location,
+                  } = value
+                  return (
+                    <ExpInfo
+                      key={id_exp}
+                      title={title}
+                      year={year}
+                      descTitle={desc_title}
+                      description={description}
+                      location={location}
+                    />
+                  )
+                })
+              )}
             </>
           ) : (
             <></>
@@ -139,7 +144,7 @@ const ExpInfo = (props) => {
           <em>{props.year}</em>
         </p>
       </div>
-      <div>
+      <div className='experiences-desc'>
         <p className='experiences-desc-title'>{props.descTitle}</p>
         <p className='text-justify'>{props.description}</p>
         <p className='experiences-desc-location'>
@@ -148,6 +153,21 @@ const ExpInfo = (props) => {
             {props.location}
           </em>
         </p>
+      </div>
+    </div>
+  )
+}
+
+const Skeleton = () => {
+  return (
+    <div className='experiences-info'>
+      <div className='experiences-main exp-skeleton-main'>
+        <div className='experiences-main-title exp-skeleton-main-title'></div>
+      </div>
+      <div className='experiences-desc exp-skeleton-desc'>
+        <div className='text-justify exp-skeleton-desc-text'></div>
+        <div className='text-justify exp-skeleton-desc-text'></div>
+        <div className='text-justify exp-skeleton-desc-text'></div>
       </div>
     </div>
   )

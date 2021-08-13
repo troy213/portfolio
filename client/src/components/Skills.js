@@ -43,14 +43,6 @@ const Skills = (props) => {
     }
   }
 
-  if (dataComputer.isLoading) {
-    return <h1 className='text-center'>Loading...</h1>
-  }
-
-  if (dataComputer.isError) {
-    return <h1 className='text-center'>Error...</h1>
-  }
-
   return (
     <section className='bg-skills' id='skills'>
       <div className='container'>
@@ -75,18 +67,24 @@ const Skills = (props) => {
           </button>
           {computerVisible === true ? (
             <>
-              {dataComputer.data.map((res) => {
-                const { id_skills, title, value, description } = res
-                return (
-                  <SkillsInfo
-                    store={props.store}
-                    key={id_skills}
-                    title={title}
-                    value={value}
-                    desc={description}
-                  />
-                )
-              })}
+              {dataComputer.isLoading ? (
+                <Skeleton />
+              ) : dataComputer.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                dataComputer.data.map((res) => {
+                  const { id_skills, title, value, description } = res
+                  return (
+                    <SkillsInfo
+                      store={props.store}
+                      key={id_skills}
+                      title={title}
+                      value={value}
+                      desc={description}
+                    />
+                  )
+                })
+              )}
             </>
           ) : (
             <></>
@@ -101,18 +99,24 @@ const Skills = (props) => {
           </button>
           {otherVisible === true ? (
             <>
-              {dataOther.data.map((res) => {
-                const { id_skills, title, value, description } = res
-                return (
-                  <SkillsInfo
-                    store={props.store}
-                    key={id_skills}
-                    title={title}
-                    value={value}
-                    desc={description}
-                  />
-                )
-              })}
+              {dataOther.isLoading ? (
+                <Skeleton />
+              ) : dataOther.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                dataOther.data.map((res) => {
+                  const { id_skills, title, value, description } = res
+                  return (
+                    <SkillsInfo
+                      store={props.store}
+                      key={id_skills}
+                      title={title}
+                      value={value}
+                      desc={description}
+                    />
+                  )
+                })
+              )}
             </>
           ) : (
             <></>
@@ -127,18 +131,24 @@ const Skills = (props) => {
           </button>
           {languageVisible === true ? (
             <>
-              {dataLanguage.data.map((res) => {
-                const { id_skills, title, value, description } = res
-                return (
-                  <SkillsInfo
-                    store={props.store}
-                    key={id_skills}
-                    title={title}
-                    value={value}
-                    desc={description}
-                  />
-                )
-              })}
+              {dataLanguage.isLoading ? (
+                <Skeleton />
+              ) : dataLanguage.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                dataLanguage.data.map((res) => {
+                  const { id_skills, title, value, description } = res
+                  return (
+                    <SkillsInfo
+                      store={props.store}
+                      key={id_skills}
+                      title={title}
+                      value={value}
+                      desc={description}
+                    />
+                  )
+                })
+              )}
             </>
           ) : (
             <></>
@@ -146,6 +156,15 @@ const Skills = (props) => {
         </div>
       </div>
     </section>
+  )
+}
+
+const Skeleton = () => {
+  return (
+    <div className='skills-item'>
+      <div className='skills-skeleton-name'></div>
+      <div className='skills-skeleton-bar'></div>
+    </div>
   )
 }
 

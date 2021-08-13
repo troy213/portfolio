@@ -434,6 +434,21 @@ nav,
   color: var(--solid-bluish-0);
 }
 
+.exp-skeleton-main {
+  margin: 0 auto;
+  min-width: 30%;
+}
+
+.exp-skeleton-main-title,
+.exp-skeleton-desc-text {
+  margin: 0.5em;
+  background: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 600%;
+  border-radius: 5px;
+  height: 25px;
+  animation: shine-line 3.2s infinite linear;
+}
+
 /* ================= SKILLS ================= */
 
 .skills .dropdown {
@@ -480,6 +495,24 @@ nav,
 .skills-detail {
   cursor: pointer;
   transition: all 200ms ease;
+}
+
+.skills-skeleton-name,
+.skills-skeleton-bar {
+  margin: 0.5em;
+  background: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+  background-size: 600%;
+  border-radius: 5px;
+  height: 25px;
+  animation: shine-line 3.2s infinite linear;
+}
+
+.skills-skeleton-name {
+  width: 30%;
+}
+
+.skills-skeleton-bar {
+  width: 100%;
 }
 
 /* ================= PROJECTS ================= */
@@ -615,6 +648,10 @@ footer a {
   width: 100%;
 }
 
+.modal-value h3 {
+  margin: 0 0 0.5em 0;
+}
+
 .modal-value ul {
   padding-left: 1.5em;
 }
@@ -687,6 +724,16 @@ footer a {
   }
 }
 
+@keyframes shine-line {
+  0% {
+    background-position: -100px;
+  }
+  40%,
+  100% {
+    background-position: 1000px;
+  }
+}
+
 /* ================= SCREEN BREAKPOINT ================= */
 
 @media (min-width: 651px) {
@@ -755,6 +802,10 @@ footer a {
     font-size: 1.125rem;
   }
 
+  .exp-skeleton-desc {
+    width: 70%;
+  }
+
   /* ----------skills---------- */
 
   .skills-item {
@@ -763,6 +814,10 @@ footer a {
   }
 
   .skills-item p {
+    flex-basis: 300px;
+  }
+
+  .skills-skeleton-name {
     flex-basis: 300px;
   }
 
@@ -809,5 +864,11 @@ footer a {
     text-decoration: none;
     color: whitesmoke;
     transition: transform 200ms ease;
+  }
+}
+
+@media (min-height: 1080px) {
+  .bg-hero {
+    height: 1080px;
   }
 }
