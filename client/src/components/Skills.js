@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
 import SkillsInfo from './SkillsInfo'
 
-const computer = '/skills/computer'
-const other = '/skills/other'
-const language = '/skills/language'
+const computer = 'http://127.0.0.1:5000/skills/computer'
+const other = 'http://127.0.0.1:5000/skills/other'
+const language = 'http://127.0.0.1:5000/skills/language'
 
 const Skills = (props) => {
   const [computerVisible, setComputerVisible] = useState(true)
