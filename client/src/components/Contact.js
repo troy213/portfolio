@@ -25,7 +25,7 @@ const Contact = (props) => {
 
       if (validateEmail(email)) {
         axios
-          .post('http://127.0.0.1:5000/message', {
+          .post('https://api.triteraerlangga.com/message', {
             name: name,
             email: email,
             message: message,

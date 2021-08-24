@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
 
-const educations = 'http://127.0.0.1:5000/experiences/Educations'
-const careers = 'http://127.0.0.1:5000/experiences/Careers'
+const educations = 'https://api.triteraerlangga.com/experiences/Educations'
+const careers = 'https://api.triteraerlangga.com/experiences/Careers'
 
 const Experiences = () => {
   const [educationsVisible, setEducationsVisible] = useState(true)
