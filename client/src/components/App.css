@@ -401,6 +401,10 @@ nav,
   min-height: 100vh;
 } */
 
+.experiences-blob {
+  width: 100%;
+}
+
 .experiences-info {
   display: flex;
   flex-direction: column;
@@ -450,6 +454,10 @@ nav,
 }
 
 /* ================= SKILLS ================= */
+
+.skill-blob {
+  width: 100%;
+}
 
 .skills .dropdown {
   margin-top: 1em;
