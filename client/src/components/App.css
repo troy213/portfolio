@@ -176,6 +176,16 @@ button {
   visibility: visible;
 }
 
+.img-center {
+  display: flex;
+  justify-content: center;
+}
+
+.secondary-blob {
+  width: 100%;
+  max-width: 600px;
+}
+
 /* ================= LAYOUT ================= */
 
 .container {
@@ -451,6 +461,10 @@ nav,
 
 /* ================= SKILLS ================= */
 
+.skill-blob {
+  width: 100%;
+}
+
 .skills .dropdown {
   margin-top: 1em;
 }
@@ -523,6 +537,10 @@ nav,
     rgba(87, 108, 219, 0.4),
     rgba(87, 108, 219, 0.8)
   ); */
+}
+
+.projects-blob {
+  width: 100%;
 }
 
 .projects-card {

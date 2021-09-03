@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
 import SkillsInfo from './SkillsInfo'
+import skillBlob from '../assets/skills.svg'
 
-const computer = 'https://api.triteraerlangga.com/skills/computer'
-const other = 'https://api.triteraerlangga.com/skills/other'
-const language = 'https://api.triteraerlangga.com/skills/language'
+const computer = 'https://tritera-erlangga-api.herokuapp.com/skills/computer'
+const other = 'https://tritera-erlangga-api.herokuapp.com/skills/other'
+const language = 'https://tritera-erlangga-api.herokuapp.com/skills/language'
 
 const Skills = (props) => {
   const [computerVisible, setComputerVisible] = useState(true)
@@ -47,6 +48,10 @@ const Skills = (props) => {
     <section className='bg-skills' id='skills'>
       <div className='container'>
         <div className='skills'>
+          <div className='img-center'>
+            <img src={skillBlob} alt='skill-blob' className='secondary-blob' />
+          </div>
+
           <h2 className='text-center bluish'>Skills</h2>
           <p className='quote text-center'>
             <em>

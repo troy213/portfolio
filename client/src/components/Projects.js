@@ -1,4 +1,5 @@
 import React from 'react'
+import projectBlob from '../assets/projects.svg'
 import { connect } from 'react-redux'
 
 const Projects = (props) => {
@@ -11,6 +12,14 @@ const Projects = (props) => {
     <section className='bg-projects' id='projects'>
       <div className='container'>
         <div className='projects'>
+          <div className='img-center'>
+            <img
+              src={projectBlob}
+              alt='projects-blob'
+              className='secondary-blob'
+            />
+          </div>
+
           <h2 className='text-center bluish'>Projects</h2>
           <p className='text-center'>
             Here, I will put all of my upcoming projects like blogs, computer
