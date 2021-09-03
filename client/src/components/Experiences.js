@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import useFetch from '../hooks/useFetch'
 import expBlob from '../assets/experiences.svg'
 
-const educations = 'https://api.triteraerlangga.com/experiences/Educations'
-const careers = 'https://api.triteraerlangga.com/experiences/Careers'
+const educations =
+  'https://tritera-erlangga-api.herokuapp.com/experiences/Educations'
+const careers = 'https://tritera-erlangga-api.herokuapp.com/experiences/Careers'
 
 const Experiences = () => {
   const [educationsVisible, setEducationsVisible] = useState(true)

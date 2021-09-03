@@ -533,6 +533,10 @@ nav,
   ); */
 }
 
+.projects-blob {
+  width: 100%;
+}
+
 .projects-card {
   display: flex;
   justify-content: space-around;
