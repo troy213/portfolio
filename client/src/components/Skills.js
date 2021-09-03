@@ -48,7 +48,10 @@ const Skills = (props) => {
     <section className='bg-skills' id='skills'>
       <div className='container'>
         <div className='skills'>
-          <img src={skillBlob} alt='skill-blob' className='skill-blob' />
+          <div className='img-center'>
+            <img src={skillBlob} alt='skill-blob' className='secondary-blob' />
+          </div>
+
           <h2 className='text-center bluish'>Skills</h2>
           <p className='quote text-center'>
             <em>

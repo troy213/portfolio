@@ -12,11 +12,14 @@ const Projects = (props) => {
     <section className='bg-projects' id='projects'>
       <div className='container'>
         <div className='projects'>
-          <img
-            src={projectBlob}
-            alt='projects-blob'
-            className='projects-blob'
-          />
+          <div className='img-center'>
+            <img
+              src={projectBlob}
+              alt='projects-blob'
+              className='secondary-blob'
+            />
+          </div>
+
           <h2 className='text-center bluish'>Projects</h2>
           <p className='text-center'>
             Here, I will put all of my upcoming projects like blogs, computer

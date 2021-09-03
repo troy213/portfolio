@@ -36,11 +36,14 @@ const Experiences = () => {
   return (
     <section className='bg-experiences' id='experiences'>
       <div className='container'>
-        <img
-          src={expBlob}
-          alt='experiences-blob'
-          className='experiences-blob'
-        />
+        <div className='img-center'>
+          <img
+            src={expBlob}
+            alt='experiences-blob'
+            className='secondary-blob'
+          />
+        </div>
+
         <h2 className='text-center bluish'>Experiences</h2>
         <p className='text-center'>
           <em>
