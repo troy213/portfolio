@@ -56,7 +56,7 @@ const Contact = (props) => {
   }
 
   return (
-    <section className='bg-contact' id='contact'>
+    <section className='bg-contact section' id='contact'>
       <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>

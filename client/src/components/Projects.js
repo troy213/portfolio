@@ -9,7 +9,7 @@ const Projects = (props) => {
   }
 
   return (
-    <section className='bg-projects' id='projects'>
+    <section className='bg-projects section' id='projects'>
       <div className='container'>
         <div className='projects'>
           <div className='img-center'>

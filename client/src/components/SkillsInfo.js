@@ -11,7 +11,7 @@ const SkillsInfo = (props) => {
     <div className='skills-item'>
       <p>
         {props.title}
-        {props.desc ? (
+        {props.desc && (
           <>
             &nbsp;
             <i
@@ -19,23 +19,12 @@ const SkillsInfo = (props) => {
               onClick={test}
             ></i>
           </>
-        ) : (
-          <></>
         )}
       </p>
       <div className='progress-bar'>
-        {Number(props.value.substr(0, props.value.length - 1)) > 98 ? (
-          <div
-            className='progress-bar-value-max'
-            style={{ width: props.value }}
-          >
-            <p className='text-white text-center mp-0'>{props.value}</p>
-          </div>
-        ) : (
-          <div className='progress-bar-value' style={{ width: props.value }}>
-            <p className='text-white text-center mp-0'>{props.value}</p>
-          </div>
-        )}
+        <div className='progress-bar-value' style={{ width: props.value }}>
+          <p className='text-white text-center mp-0'>{props.value}</p>
+        </div>
       </div>
     </div>
   )

@@ -484,19 +484,15 @@ nav,
   height: 1.5em;
   border-radius: 5px;
   width: 100%;
+  overflow: hidden;
 }
 
-.progress-bar div {
+.progress-bar-value {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.825rem;
-}
-
-.progress-bar-value {
   height: 100%;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
   background: linear-gradient(var(--solid-bluish-0), var(--solid-purplish-0));
 }
 
@@ -733,6 +729,18 @@ footer a {
   color: var(--solid-bluish-3);
 }
 
+.section {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  transition: top 800ms ease-out, opacity 800ms ease-out;
+}
+
+.is-visible {
+  top: 0;
+  opacity: 1;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -849,6 +857,10 @@ footer a {
 
   .grid-container label {
     justify-self: center;
+  }
+
+  .contact-input:focus {
+    outline: none;
   }
 
   .btn-contact {

@@ -34,7 +34,7 @@ const Experiences = () => {
   }
 
   return (
-    <section className='bg-experiences' id='experiences'>
+    <section className='bg-experiences section' id='experiences'>
       <div className='container'>
         <div className='img-center'>
           <img

@@ -8,22 +8,44 @@ import Projects from './Projects'
 import Contact from './Contact'
 import Footer from './Footer'
 import Modal from './Modal'
-import store from '../store'
 
 import 'font-awesome/css/font-awesome.min.css'
 import './App.css'
 
 const App = () => {
+  React.useEffect(() => {
+    const options = {
+      root: null,
+      threshold: 0,
+      rootMargin: '-100px',
+    }
+
+    const serviceItems = document.querySelectorAll('.section')
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.toggle('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, options)
+
+    serviceItems.forEach((item) => {
+      observer.observe(item)
+    })
+  }, [])
+
   return (
     <div id='app'>
-      <Modal store={store} />
-      <Navbar store={store} />
-      <Hero store={store} />
+      <Modal />
+      <Navbar />
+      <Hero />
       <About />
       <Experiences />
-      <Skills store={store} />
-      <Projects store={store} />
-      <Contact store={store} />
+      <Skills />
+      <Projects />
+      <Contact />
       <Footer />
     </div>
   )

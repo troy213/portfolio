@@ -45,7 +45,7 @@ const Skills = (props) => {
   }
 
   return (
-    <section className='bg-skills' id='skills'>
+    <section className='bg-skills section' id='skills'>
       <div className='container'>
         <div className='skills'>
           <div className='img-center'>
