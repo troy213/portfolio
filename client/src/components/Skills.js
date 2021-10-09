@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
-import useFetch from '../hooks/useFetch'
 import SkillsInfo from './SkillsInfo'
 import skillBlob from '../assets/skills.svg'
-
-const computer = 'https://tritera-erlangga-api.herokuapp.com/skills/computer'
-const other = 'https://tritera-erlangga-api.herokuapp.com/skills/other'
-const language = 'https://tritera-erlangga-api.herokuapp.com/skills/language'
+import { connect } from 'react-redux'
 
 const Skills = (props) => {
   const [computerVisible, setComputerVisible] = useState(true)
   const [otherVisible, setOtherVisible] = useState(true)
   const [languageVisible, setLanguageVisible] = useState(true)
-
-  const dataComputer = useFetch(computer)
-  const dataOther = useFetch(other)
-  const dataLanguage = useFetch(language)
 
   const handleChevron = (value) => {
     if (value === 'computer') {
@@ -70,29 +62,29 @@ const Skills = (props) => {
             <p className='dropdown-title'>Computer Skills</p>
             <i className='fa fa-chevron-up' id='skills-computer'></i>
           </button>
-          {computerVisible === true ? (
+          {computerVisible && (
             <>
-              {dataComputer.isLoading ? (
+              {props.isLoading ? (
                 <Skeleton />
-              ) : dataComputer.isError ? (
+              ) : props.isError ? (
                 <p>Error fetching from the server...</p>
               ) : (
-                dataComputer.data.map((res) => {
-                  const { id_skills, title, value, description } = res
-                  return (
-                    <SkillsInfo
-                      store={props.store}
-                      key={id_skills}
-                      title={title}
-                      value={value}
-                      desc={description}
-                    />
-                  )
-                })
+                props.data.skills
+                  .filter((value) => value.type === 'Computer')
+                  .map((res) => {
+                    const { id_skills, title, value, description } = res
+                    return (
+                      <SkillsInfo
+                        store={props.store}
+                        key={id_skills}
+                        title={title}
+                        value={value}
+                        desc={description}
+                      />
+                    )
+                  })
               )}
             </>
-          ) : (
-            <></>
           )}
 
           <button
@@ -102,29 +94,29 @@ const Skills = (props) => {
             <p className='dropdown-title'>Other</p>
             <i className='fa fa-chevron-up' id='skills-other'></i>
           </button>
-          {otherVisible === true ? (
+          {otherVisible && (
             <>
-              {dataOther.isLoading ? (
+              {props.isLoading ? (
                 <Skeleton />
-              ) : dataOther.isError ? (
+              ) : props.isError ? (
                 <p>Error fetching from the server...</p>
               ) : (
-                dataOther.data.map((res) => {
-                  const { id_skills, title, value, description } = res
-                  return (
-                    <SkillsInfo
-                      store={props.store}
-                      key={id_skills}
-                      title={title}
-                      value={value}
-                      desc={description}
-                    />
-                  )
-                })
+                props.data.skills
+                  .filter((value) => value.type === 'Other')
+                  .map((res) => {
+                    const { id_skills, title, value, description } = res
+                    return (
+                      <SkillsInfo
+                        store={props.store}
+                        key={id_skills}
+                        title={title}
+                        value={value}
+                        desc={description}
+                      />
+                    )
+                  })
               )}
             </>
-          ) : (
-            <></>
           )}
 
           <button
@@ -134,29 +126,29 @@ const Skills = (props) => {
             <p className='dropdown-title'>Languages</p>
             <i className='fa fa-chevron-up' id='skills-language'></i>
           </button>
-          {languageVisible === true ? (
+          {languageVisible && (
             <>
-              {dataLanguage.isLoading ? (
+              {props.isLoading ? (
                 <Skeleton />
-              ) : dataLanguage.isError ? (
+              ) : props.isError ? (
                 <p>Error fetching from the server...</p>
               ) : (
-                dataLanguage.data.map((res) => {
-                  const { id_skills, title, value, description } = res
-                  return (
-                    <SkillsInfo
-                      store={props.store}
-                      key={id_skills}
-                      title={title}
-                      value={value}
-                      desc={description}
-                    />
-                  )
-                })
+                props.data.skills
+                  .filter((value) => value.type === 'Language')
+                  .map((res) => {
+                    const { id_skills, title, value, description } = res
+                    return (
+                      <SkillsInfo
+                        store={props.store}
+                        key={id_skills}
+                        title={title}
+                        value={value}
+                        desc={description}
+                      />
+                    )
+                  })
               )}
             </>
-          ) : (
-            <></>
           )}
         </div>
       </div>
@@ -173,4 +165,8 @@ const Skeleton = () => {
   )
 }
 
-export default Skills
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default connect(mapStateToProps)(Skills)

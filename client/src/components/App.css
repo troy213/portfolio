@@ -54,6 +54,10 @@ body {
   font-family: 'Lato', 'Roboto', sans-serif;
 }
 
+#app {
+  min-width: 320px;
+}
+
 h1,
 h2,
 h3,
@@ -201,6 +205,7 @@ button {
 header {
   position: fixed;
   width: 100%;
+  min-width: 320px;
   padding: var(--s) 0;
   z-index: 2;
 }
@@ -262,7 +267,6 @@ nav,
 
 .nav-menu {
   width: 100%;
-
   padding: 1.5em 0.5em;
   position: absolute;
   background: white;
@@ -270,7 +274,13 @@ nav,
   border-bottom-right-radius: 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.nav-menu-container {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 

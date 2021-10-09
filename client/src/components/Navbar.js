@@ -134,43 +134,45 @@ const Navbar = (props) => {
           }
           id='nav-menu'
         >
-          <div className='nav-menu-item'>
-            <a href='#home'>
-              <i className='fa fa-home'></i>
-              <p className={theme === 'dark' ? 'text-white' : ''}>Home</p>
-            </a>
-          </div>
-          <div className='nav-menu-item'>
-            <a href='#about'>
-              <i className='fa fa-user'></i>
-              <p className={theme === 'dark' ? 'text-white' : ''}>About</p>
-            </a>
-          </div>
-          <div className='nav-menu-item'>
-            <a href='#experiences'>
-              <i className='fa fa-graduation-cap'></i>
-              <p className={theme === 'dark' ? 'text-white' : ''}>
-                Experiences
-              </p>
-            </a>
-          </div>
-          <div className='nav-menu-item'>
-            <a href='#skills'>
-              <i className='fa fa-flask'></i>
-              <p className={theme === 'dark' ? 'text-white' : ''}>Skills</p>
-            </a>
-          </div>
-          <div className='nav-menu-item'>
-            <a href='#projects'>
-              <i className='fa fa-cogs'></i>
-              <p className={theme === 'dark' ? 'text-white' : ''}>Projects</p>
-            </a>
-          </div>
-          <div className='nav-menu-item'>
-            <a href='#contact'>
-              <i className='fa fa-phone'></i>
-              <p className={theme === 'dark' ? 'text-white' : ''}>Contact</p>
-            </a>
+          <div className='nav-menu-container'>
+            <div className='nav-menu-item'>
+              <a href='#home'>
+                <i className='fa fa-home'></i>
+                <p className={theme === 'dark' ? 'text-white' : ''}>Home</p>
+              </a>
+            </div>
+            <div className='nav-menu-item'>
+              <a href='#about'>
+                <i className='fa fa-user'></i>
+                <p className={theme === 'dark' ? 'text-white' : ''}>About</p>
+              </a>
+            </div>
+            <div className='nav-menu-item'>
+              <a href='#experiences'>
+                <i className='fa fa-graduation-cap'></i>
+                <p className={theme === 'dark' ? 'text-white' : ''}>
+                  Experiences
+                </p>
+              </a>
+            </div>
+            <div className='nav-menu-item'>
+              <a href='#skills'>
+                <i className='fa fa-flask'></i>
+                <p className={theme === 'dark' ? 'text-white' : ''}>Skills</p>
+              </a>
+            </div>
+            <div className='nav-menu-item'>
+              <a href='#projects'>
+                <i className='fa fa-cogs'></i>
+                <p className={theme === 'dark' ? 'text-white' : ''}>Projects</p>
+              </a>
+            </div>
+            <div className='nav-menu-item'>
+              <a href='#contact'>
+                <i className='fa fa-phone'></i>
+                <p className={theme === 'dark' ? 'text-white' : ''}>Contact</p>
+              </a>
+            </div>
           </div>
         </div>
       ) : (
@@ -187,7 +189,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onChangeTheme: (value) => {
-      const action = { type: 'CHANGE_THEME', payload: value }
+      const action = { type: 'SET_THEME', payload: value }
       dispatch(action)
     },
   }

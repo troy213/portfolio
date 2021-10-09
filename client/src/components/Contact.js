@@ -25,7 +25,7 @@ const Contact = (props) => {
 
       if (validateEmail(email)) {
         axios
-          .post('https://api.triteraerlangga.com/message', {
+          .post('https://tritera-erlangga-api.herokuapp.com/message', {
             name: name,
             email: email,
             message: message,

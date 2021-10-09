@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
-import useFetch from '../hooks/useFetch'
 import expBlob from '../assets/experiences.svg'
+import { connect } from 'react-redux'
 
-const educations =
-  'https://tritera-erlangga-api.herokuapp.com/experiences/Educations'
-const careers = 'https://tritera-erlangga-api.herokuapp.com/experiences/Careers'
-
-const Experiences = () => {
+const Experiences = (props) => {
   const [educationsVisible, setEducationsVisible] = useState(true)
   const [careersVisible, setCareersVisible] = useState(true)
-
-  const dataEducations = useFetch(educations)
-  const dataCareers = useFetch(careers)
 
   const handleChevron = (value) => {
     if (value === 'educations') {
@@ -64,37 +57,37 @@ const Experiences = () => {
           </p>
           <i className='fa fa-chevron-up' id='exp-educations-chevron'></i>
         </button>
-        {educationsVisible === true ? (
+        {educationsVisible && (
           <>
-            {dataEducations.isLoading ? (
+            {props.isLoading ? (
               <Skeleton />
-            ) : dataEducations.isError ? (
+            ) : props.isError ? (
               <p>Error fetching from the server...</p>
             ) : (
-              dataEducations.data.map((value) => {
-                const {
-                  id_exp,
-                  title,
-                  year,
-                  desc_title,
-                  description,
-                  location,
-                } = value
-                return (
-                  <ExpInfo
-                    key={id_exp}
-                    title={title}
-                    year={year}
-                    descTitle={desc_title}
-                    description={description}
-                    location={location}
-                  />
-                )
-              })
+              props.data.experiences
+                .filter((value) => value.type === 'Educations')
+                .map((value) => {
+                  const {
+                    id_exp,
+                    title,
+                    year,
+                    desc_title,
+                    description,
+                    location,
+                  } = value
+                  return (
+                    <ExpInfo
+                      key={id_exp}
+                      title={title}
+                      year={year}
+                      descTitle={desc_title}
+                      description={description}
+                      location={location}
+                    />
+                  )
+                })
             )}
           </>
-        ) : (
-          <></>
         )}
         <button
           className='dropdown bluish'
@@ -106,37 +99,37 @@ const Experiences = () => {
           </p>
           <i className='fa fa-chevron-up' id='exp-careers-chevron'></i>
         </button>
-        {careersVisible === true ? (
+        {careersVisible && (
           <>
-            {dataCareers.isLoading ? (
+            {props.isLoading ? (
               <Skeleton />
-            ) : dataCareers.isError ? (
+            ) : props.isError ? (
               <p>Error fetching from the server...</p>
             ) : (
-              dataCareers.data.map((value) => {
-                const {
-                  id_exp,
-                  title,
-                  year,
-                  desc_title,
-                  description,
-                  location,
-                } = value
-                return (
-                  <ExpInfo
-                    key={id_exp}
-                    title={title}
-                    year={year}
-                    descTitle={desc_title}
-                    description={description}
-                    location={location}
-                  />
-                )
-              })
+              props.data.experiences
+                .filter((value) => value.type === 'Careers')
+                .map((value) => {
+                  const {
+                    id_exp,
+                    title,
+                    year,
+                    desc_title,
+                    description,
+                    location,
+                  } = value
+                  return (
+                    <ExpInfo
+                      key={id_exp}
+                      title={title}
+                      year={year}
+                      descTitle={desc_title}
+                      description={description}
+                      location={location}
+                    />
+                  )
+                })
             )}
           </>
-        ) : (
-          <></>
         )}
       </div>
     </section>
@@ -181,4 +174,8 @@ const Skeleton = () => {
   )
 }
 
-export default Experiences
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default connect(mapStateToProps)(Experiences)
