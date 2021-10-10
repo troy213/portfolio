@@ -1,13 +1,8 @@
 import React from 'react'
 import projectBlob from '../assets/projects.svg'
-import { connect } from 'react-redux'
+import marketImg from '../assets/market.png'
 
-const Projects = (props) => {
-  const test = () => {
-    props.onChangeModalValue('Coming Soon!')
-    document.getElementById('modal').style.display = 'block'
-  }
-
+const Projects = () => {
   return (
     <section className='bg-projects section' id='projects'>
       <div className='container'>
@@ -27,9 +22,28 @@ const Projects = (props) => {
           </p>
           <hr />
           <div className='projects-card'>
-            <div className='projects-card-item' onClick={test}></div>
-            <div className='projects-card-item' onClick={test}></div>
-            <div className='projects-card-item' onClick={test}></div>
+            <a
+              href='https://market.triteraerlangga.com'
+              className='projects-card-item'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <div className='projects-card-img-wrapper'>
+                <img
+                  src={marketImg}
+                  alt='market'
+                  className='projects-card-img'
+                />
+              </div>
+              <div className='projects-card-desc'>
+                <h3>E-Commerce</h3>
+                <p>
+                  A fully functioning RESTful e-commerce website project with
+                  ReactJS, NodeJS, MySQL, JWT Authentication, and BCrypt hashing
+                  algorithm for storing passwords.
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -37,17 +51,4 @@ const Projects = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onChangeModalValue: (value) => {
-      const action = { type: 'CHANGE_MODAL_VALUE', payload: value }
-      dispatch(action)
-    },
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Projects)
+export default Projects

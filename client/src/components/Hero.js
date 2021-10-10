@@ -59,11 +59,8 @@ const Hero = (props) => {
         </div>
       </div>
       <div className='center'>
-        {props.theme === 'light' ? (
-          <img src={blobLight} alt='blob' className='blob' />
-        ) : (
-          <img src={blobDark} alt='blob' className='blob' />
-        )}
+        <img src={blobLight} alt='blob' className='blob blob-light' />
+        <img src={blobDark} alt='blob' className='blob blob-dark' />
       </div>
     </section>
   )

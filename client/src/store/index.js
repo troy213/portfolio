@@ -14,11 +14,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_THEME':
-      if (action.payload === 'light') {
-        return Object.assign({}, state, { theme: 'dark' })
-      } else {
-        return Object.assign({}, state, { theme: 'light' })
-      }
+      return Object.assign({}, state, { theme: action.payload })
     case 'CHANGE_MODAL_VALUE':
       return Object.assign({}, state, { modalValue: action.payload })
     case 'SET_LOADING':
