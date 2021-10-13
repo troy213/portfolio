@@ -660,6 +660,10 @@ nav,
   border-radius: 3px;
 }
 
+.contact-input:focus {
+  outline: none;
+}
+
 .danger {
   border: 3px solid rgba(255, 0, 0, 0.4) !important;
 }
@@ -703,51 +707,88 @@ footer a {
 /* ================= MODAL ================= */
 
 .modal {
-  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.3);
+  z-index: 3;
 }
 
-.modal-content {
-  display: flex;
-  flex-direction: row-reverse;
-  position: absolute;
-  padding: 1.25em;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.modal-container {
+  padding: 1em;
+  position: relative;
+  background: white;
   border-radius: 5px;
-  background: whitesmoke;
-  width: 70%;
-  min-height: 200px;
-  max-width: 520px;
+  min-height: 100px;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
 }
 
 .modal-value {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.modal-value h3 {
-  margin: 0 0 0.5em 0;
+  margin: 0 2em 1em 2em;
+  max-width: 300px;
+  color: #777;
 }
 
 .modal-value ul {
-  padding-left: 1.5em;
+  list-style: none;
 }
 
-.close {
-  font-size: 1.75rem;
+.modal-value ul li {
+  font-size: 0.8rem;
+  margin: 0.5em 0;
+}
+
+.modal-value ul li::before {
+  content: '\2022';
+  color: var(--solid-bluish-1);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.modal-title {
+  color: var(--solid-bluish-0);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal-message-container {
+  height: 100px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-message {
+  color: #777;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 1.5rem;
   cursor: pointer;
+}
+
+.modal-container.modal-dark {
+  background: #333;
+  transition: background 100ms linear;
+}
+
+.modal-value.modal-dark,
+.modal-message.modal-dark {
+  color: #ddd;
+  transition: color 100ms linear;
 }
 
 /* ================= SCROLL ================= */
@@ -814,6 +855,11 @@ footer a {
 .is-visible {
   top: 0;
   opacity: 1;
+}
+
+.btn-contact:disabled {
+  cursor: default;
+  background: #aaa;
 }
 
 @keyframes fadein {
@@ -974,10 +1020,6 @@ footer a {
 
   .grid-container label {
     justify-self: center;
-  }
-
-  .contact-input:focus {
-    outline: none;
   }
 
   .btn-contact {

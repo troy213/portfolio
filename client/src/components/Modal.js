@@ -1,54 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const Modal = (props) => {
-  const [modal, setModal] = useState(null)
-
-  useEffect(() => {
-    setModal(document.getElementById('modal'))
-  }, [])
-
+const Modal = ({ open, children, onClose, theme }) => {
   const handleModal = (e) => {
-    if (e.target === modal) {
-      closeModal()
+    if (e.target.id === 'modal') {
+      onClose()
     }
   }
 
-  const closeModal = () => {
-    modal.style.display = 'none'
+  if (!open) {
+    return null
   }
 
-  return (
+  return ReactDOM.createPortal(
     <div className='modal' id='modal' onClick={handleModal}>
-      <div className='modal-content'>
-        <span className='close text-black' onClick={closeModal}>
+      <div className={`modal-container ${theme === 'dark' && 'modal-dark'}`}>
+        <span className='modal-close' onClick={onClose}>
           &times;
         </span>
-        <div className='modal-value text-black'>
-          {typeof props.modalValue === 'object' ? (
-            <div>
-              <h3 className='text-center'>What I've Learned</h3>
-              <ul>
-                {props.modalValue.map((value, index) => {
-                  return <li key={index}>{value}</li>
-                })}
-              </ul>
-            </div>
-          ) : (
-            <p>{props.modalValue}</p>
-          )}
-        </div>
+        {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById('portal')
   )
 }
 
-const mapStateToProps = (state) => {
-  return state
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal)
+export default Modal

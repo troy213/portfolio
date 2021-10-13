@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from './Modal'
 import { connect } from 'react-redux'
 
 const SkillsInfo = (props) => {
+  const [isOpen, setIsOpen] = useState(false)
   const test = () => {
     props.onChangeModalValue(props.desc.split(';'))
-    document.getElementById('modal').style.display = 'block'
+    setIsOpen(true)
   }
 
   return (
     <div className='skills-item'>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} theme={props.theme}>
+        <div
+          className={`modal-value ${props.theme === 'dark' && 'modal-dark'}`}
+        >
+          {typeof props.modalValue === 'object' && (
+            <div>
+              <p className='modal-title text-center'>What I've Learned</p>
+              <ul>
+                {props.modalValue.map((value, index) => {
+                  return <li key={index}>{value}</li>
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
+      </Modal>
       <p>
         {props.title}
         {props.desc && (

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import Modal from './Modal'
 import axios from 'axios'
 
 const Contact = (props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [isOpen, setIsOpen] = useState(false)
+  const [btnDisabled, setBtnDisabled] = useState(false)
 
   const validateEmail = (email) => {
     const regex =
@@ -14,6 +17,7 @@ const Contact = (props) => {
   }
 
   const sendData = () => {
+    setBtnDisabled(true)
     if (name && email && message) {
       document.querySelectorAll('.contact-input').forEach((value) => {
         if (value.value === '') {
@@ -32,15 +36,18 @@ const Contact = (props) => {
           })
           .then(() => {
             props.onChangeModalValue('Message has been sent successfully!')
-            document.getElementById('modal').style.display = 'block'
+            setBtnDisabled(false)
+            setIsOpen(true)
           })
           .catch(() => {
             props.onChangeModalValue('Something went wrong :(')
-            document.getElementById('modal').style.display = 'block'
+            setBtnDisabled(false)
+            setIsOpen(true)
           })
       } else {
         props.onChangeModalValue('Your E-mail address is invalid')
-        document.getElementById('modal').style.display = 'block'
+        setBtnDisabled(false)
+        setIsOpen(true)
       }
     } else {
       document.querySelectorAll('.contact-input').forEach((value) => {
@@ -51,12 +58,24 @@ const Contact = (props) => {
         }
       })
       props.onChangeModalValue('Please fill the blank')
-      document.getElementById('modal').style.display = 'block'
+      setBtnDisabled(false)
+      setIsOpen(true)
     }
   }
 
   return (
     <section className='bg-contact section' id='contact'>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} theme={props.theme}>
+        <div className='modal-message-container'>
+          <p
+            className={`modal-message ${
+              props.theme === 'dark' && 'modal-dark'
+            }`}
+          >
+            {props.modalValue}
+          </p>
+        </div>
+      </Modal>
       <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
@@ -105,6 +124,7 @@ const Contact = (props) => {
               <button
                 className='btn btn-primary btn-contact'
                 onClick={sendData}
+                disabled={btnDisabled ? true : false}
               >
                 Send
               </button>
