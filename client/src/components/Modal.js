@@ -15,7 +15,10 @@ const Modal = ({ open, children, onClose, theme }) => {
   return ReactDOM.createPortal(
     <div className='modal' id='modal' onClick={handleModal}>
       <div className={`modal-container ${theme === 'dark' && 'modal-dark'}`}>
-        <span className='modal-close' onClick={onClose}>
+        <span
+          className={`modal-close ${theme === 'dark' && 'modal-dark'}`}
+          onClick={onClose}
+        >
           &times;
         </span>
         {children}

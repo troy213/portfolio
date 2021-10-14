@@ -338,6 +338,7 @@ nav,
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url('../assets/Background.png');
   height: 100vh;
 }
 
@@ -346,14 +347,6 @@ nav,
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.bg-dark {
-  background-image: url('../assets/Background.png');
-}
-
-.bg-light {
-  background-image: url('../assets/Background.png');
 }
 
 .hero-info {
@@ -623,11 +616,16 @@ nav,
 .projects-card-desc {
   width: 100%;
   padding: var(--m);
-  background: var(--solid-bluish-2);
+  background: url('../assets/Background.png');
   text-decoration: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: whitesmoke;
+}
+
+.projects-card-item:nth-child(even) .projects-card-desc {
+  background: url('../assets/Background-Flip.png');
+  background-position: right 0 top 0;
 }
 
 /* ================= CONTACT ================= */
@@ -786,7 +784,8 @@ footer a {
 }
 
 .modal-value.modal-dark,
-.modal-message.modal-dark {
+.modal-message.modal-dark,
+.modal-close.modal-dark {
   color: #ddd;
   transition: color 100ms linear;
 }

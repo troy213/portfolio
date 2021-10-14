@@ -5,7 +5,7 @@ import blobDark from '../assets/blob-dark.svg'
 
 const Hero = (props) => {
   return (
-    <section className='bg-hero bg-light' id='home'>
+    <section className='bg-hero' id='home'>
       <div className='container'>
         <div className='hero-info'>
           <div className='hero-info-desc'>
