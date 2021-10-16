@@ -8,8 +8,8 @@ const About = () => {
   const age = Math.floor((now - dob) / (1000 * 60 * 60 * 24 * 365))
 
   return (
-    <section className='bg-about section' id='about'>
-      <div className='container'>
+    <section className='bg-about' id='about'>
+      <div className='container section'>
         <div className='about'>
           <h2 className='text-center bluish'>About Me</h2>
           <h3 className='text-center bluish-2'>

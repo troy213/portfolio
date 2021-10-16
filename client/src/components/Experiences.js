@@ -27,8 +27,8 @@ const Experiences = (props) => {
   }
 
   return (
-    <section className='bg-experiences section' id='experiences'>
-      <div className='container'>
+    <section className='bg-experiences' id='experiences'>
+      <div className='container section'>
         <div className='img-center'>
           <img
             src={expBlob}
@@ -39,7 +39,7 @@ const Experiences = (props) => {
 
         <h2 className='text-center bluish'>Experiences</h2>
         <p className='text-center'>
-          <em>
+          <em className='quotes'>
             "The single most powerful asset we all have is our mind. if it is
             trained well, it can create enormous wealth in what seems to be an
             instant."
@@ -48,89 +48,93 @@ const Experiences = (props) => {
           </em>
         </p>
         <hr />
-        <button
-          className='dropdown bluish'
-          onClick={() => handleChevron('educations')}
-        >
-          <p className='dropdown-title'>
-            <i className='fa fa-book'>&nbsp;</i>Educations
-          </p>
-          <i className='fa fa-chevron-up' id='exp-educations-chevron'></i>
-        </button>
-        {educationsVisible && (
-          <>
-            {props.isLoading ? (
-              <Skeleton />
-            ) : props.isError ? (
-              <p>Error fetching from the server...</p>
-            ) : (
-              props.data.experiences
-                .filter((value) => value.type === 'Educations')
-                .map((value) => {
-                  const {
-                    id_exp,
-                    title,
-                    year,
-                    desc_title,
-                    description,
-                    location,
-                  } = value
-                  return (
-                    <ExpInfo
-                      key={id_exp}
-                      title={title}
-                      year={year}
-                      descTitle={desc_title}
-                      description={description}
-                      location={location}
-                    />
-                  )
-                })
-            )}
-          </>
-        )}
-        <button
-          className='dropdown bluish'
-          onClick={() => handleChevron('careers')}
-        >
-          <p className='dropdown-title'>
-            <i className='fa fa-briefcase'>&nbsp;</i>
-            Careers
-          </p>
-          <i className='fa fa-chevron-up' id='exp-careers-chevron'></i>
-        </button>
-        {careersVisible && (
-          <>
-            {props.isLoading ? (
-              <Skeleton />
-            ) : props.isError ? (
-              <p>Error fetching from the server...</p>
-            ) : (
-              props.data.experiences
-                .filter((value) => value.type === 'Careers')
-                .map((value) => {
-                  const {
-                    id_exp,
-                    title,
-                    year,
-                    desc_title,
-                    description,
-                    location,
-                  } = value
-                  return (
-                    <ExpInfo
-                      key={id_exp}
-                      title={title}
-                      year={year}
-                      descTitle={desc_title}
-                      description={description}
-                      location={location}
-                    />
-                  )
-                })
-            )}
-          </>
-        )}
+        <div className='exp-card'>
+          <button
+            className='dropdown bluish'
+            onClick={() => handleChevron('educations')}
+          >
+            <p className='dropdown-title'>
+              <i className='fa fa-book'>&nbsp;</i>Educations
+            </p>
+            <i className='fa fa-chevron-up' id='exp-educations-chevron'></i>
+          </button>
+          {educationsVisible && (
+            <>
+              {props.isLoading ? (
+                <Skeleton />
+              ) : props.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                props.data.experiences
+                  .filter((value) => value.type === 'Educations')
+                  .map((value) => {
+                    const {
+                      id_exp,
+                      title,
+                      year,
+                      desc_title,
+                      description,
+                      location,
+                    } = value
+                    return (
+                      <ExpInfo
+                        key={id_exp}
+                        title={title}
+                        year={year}
+                        descTitle={desc_title}
+                        description={description}
+                        location={location}
+                      />
+                    )
+                  })
+              )}
+            </>
+          )}
+        </div>
+        <div className='exp-card'>
+          <button
+            className='dropdown bluish'
+            onClick={() => handleChevron('careers')}
+          >
+            <p className='dropdown-title'>
+              <i className='fa fa-briefcase'>&nbsp;</i>
+              Careers
+            </p>
+            <i className='fa fa-chevron-up' id='exp-careers-chevron'></i>
+          </button>
+          {careersVisible && (
+            <>
+              {props.isLoading ? (
+                <Skeleton />
+              ) : props.isError ? (
+                <p>Error fetching from the server...</p>
+              ) : (
+                props.data.experiences
+                  .filter((value) => value.type === 'Careers')
+                  .map((value) => {
+                    const {
+                      id_exp,
+                      title,
+                      year,
+                      desc_title,
+                      description,
+                      location,
+                    } = value
+                    return (
+                      <ExpInfo
+                        key={id_exp}
+                        title={title}
+                        year={year}
+                        descTitle={desc_title}
+                        description={description}
+                        location={location}
+                      />
+                    )
+                  })
+              )}
+            </>
+          )}
+        </div>
       </div>
     </section>
   )

@@ -6,7 +6,7 @@ const Footer = () => {
       <div className='container'>
         <footer>
           <p className='text-center text-white'>
-            <em>
+            <em className='quotes'>
               There's a lot of good cafe in Southern Jakarta. I love coffee!
               maybe we can get in touch. Instagram message work best!
             </em>

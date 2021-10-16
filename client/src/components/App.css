@@ -66,11 +66,11 @@ p {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 hr {
-  margin: var(--s) 0;
+  margin: var(--m) 0;
 }
 
 button {
@@ -132,6 +132,10 @@ button {
 
 .text-black {
   color: #333;
+}
+
+.quotes {
+  font-size: 0.8rem;
 }
 
 .dropdown {
@@ -327,6 +331,10 @@ nav,
   transition: color 100ms linear;
 }
 
+.nav-text:hover {
+  color: var(--solid-orangish-0) !important;
+}
+
 .sticky {
   position: fixed;
 }
@@ -406,7 +414,10 @@ nav,
 } */
 
 .bg-about {
-  padding: var(--xl) 0;
+  position: relative;
+  padding: var(--xl) 0 4em 0;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .about-info {
@@ -441,16 +452,10 @@ nav,
 /* ================= EXPERIENCES ================= */
 
 .bg-experiences {
-  padding: var(--xl) 0;
-  /* background-image: linear-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(87, 108, 219, 0.4)
-  ); */
+  padding: 5em 0;
+  background: url('../assets/exp-bg.png');
+  background-size: cover;
 }
-
-/* .experiences {
-  min-height: 100vh;
-} */
 
 .experiences-info {
   display: flex;
@@ -500,7 +505,26 @@ nav,
   animation: shine-line 3.2s infinite linear;
 }
 
+#experiences .quotes,
+#experiences p {
+  color: #ddd;
+}
+
+#experiences h2,
+#experiences .dropdown,
+#experiences .dropdown-title,
+#experiences i,
+#experiences .experiences-main-title {
+  color: var(--solid-orangish-0);
+}
+
 /* ================= SKILLS ================= */
+
+.bg-skills {
+  padding: 5em 0;
+  box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
 .skill-blob {
   width: 100%;
@@ -508,10 +532,6 @@ nav,
 
 .skills .dropdown {
   margin-top: 1em;
-}
-
-.bg-skills {
-  padding: var(--xl) 0;
 }
 
 .skills-item {
@@ -670,7 +690,8 @@ nav,
 
 .bg-footer {
   padding: var(--xl) 0 var(--s) 0;
-  background: linear-gradient(var(--solid-purplish-0), var(--solid-bluish-0));
+  background: url('../assets//exp-bg.png');
+  background-size: cover;
 }
 
 .btn-footer {
@@ -846,7 +867,7 @@ footer a {
 
 .section {
   position: relative;
-  top: 50px;
+  top: 100px;
   opacity: 0;
   transition: top 800ms ease-out, opacity 800ms ease-out;
 }
@@ -946,6 +967,10 @@ footer a {
   .experiences-desc-title,
   .experiences-desc-location {
     text-align: left;
+  }
+
+  #experiences .experiences-main-title {
+    color: #ddd;
   }
 
   .experiences-desc-title {
