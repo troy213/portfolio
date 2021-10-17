@@ -64,7 +64,7 @@ const Contact = (props) => {
   }
 
   return (
-    <section className='bg-contact section' id='contact'>
+    <section className='bg-contact' id='contact'>
       <Modal open={isOpen} onClose={() => setIsOpen(false)} theme={props.theme}>
         <div className='modal-message-container'>
           <p
@@ -76,7 +76,7 @@ const Contact = (props) => {
           </p>
         </div>
       </Modal>
-      <div className='container'>
+      <div className='container section'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
           <div className='center'>

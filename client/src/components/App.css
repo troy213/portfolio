@@ -38,7 +38,7 @@ GLOBAL VARIABLE
 GLOBAL STYLING
 ================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100,400;700&family=Roboto&display=swap');
 
 * {
   margin: 0;
@@ -521,8 +521,9 @@ nav,
 /* ================= SKILLS ================= */
 
 .bg-skills {
+  position: relative;
   padding: 5em 0;
-  box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.2), 0 10px 5px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -589,11 +590,9 @@ nav,
 /* ================= PROJECTS ================= */
 
 .bg-projects {
-  padding: var(--xl) 0;
-  /* background-image: linear-gradient(
-    rgba(87, 108, 219, 0.4),
-    rgba(87, 108, 219, 0.8)
-  ); */
+  padding: 5em 0;
+  background: url('../assets/exp-bg.png');
+  background-size: cover;
 }
 
 .projects-blob {
@@ -618,12 +617,17 @@ nav,
   flex-direction: column;
   text-decoration: none;
   color: #333;
-  background: var(--solid-bluish-1);
+  overflow: hidden;
+  /* background: url('../assets/project-bg.png');
+  background-size: cover; */
+  box-shadow: 5px 10px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .projects-card-img-wrapper {
   display: flex;
   align-items: center;
+  background: url('../assets/project-bg.png');
+  background-size: cover;
 }
 
 .projects-card-img {
@@ -635,12 +639,10 @@ nav,
 
 .projects-card-desc {
   width: 100%;
-  padding: var(--m);
+  padding: var(--xl);
   background: url('../assets/Background.png');
   text-decoration: none;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  color: whitesmoke;
+  color: #eee;
 }
 
 .projects-card-item:nth-child(even) .projects-card-desc {
@@ -648,10 +650,19 @@ nav,
   background-position: right 0 top 0;
 }
 
+#projects h2 {
+  color: var(--solid-orangish-0);
+}
+
+#projects p {
+  color: #eee;
+}
+
 /* ================= CONTACT ================= */
 
 .bg-contact {
   padding: var(--xl) 0;
+  box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.2);
 }
 
 .grid-container {
@@ -1004,10 +1015,9 @@ footer a {
 
   /* .projects-card-item:nth-child(even) {
     flex-direction: row-reverse;
-    text-align: right;
-  }
+  } */
 
-  .projects-card-item:nth-child(even) .projects-card-desc {
+  /* .projects-card-item:nth-child(even) .projects-card-desc {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 0;

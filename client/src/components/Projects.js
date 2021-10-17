@@ -5,8 +5,8 @@ import ongkirImg from '../assets/ongkir.png'
 
 const Projects = () => {
   return (
-    <section className='bg-projects section' id='projects'>
-      <div className='container'>
+    <section className='bg-projects' id='projects'>
+      <div className='container section'>
         <div className='projects'>
           <div className='img-center'>
             <img
