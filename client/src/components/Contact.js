@@ -76,7 +76,7 @@ const Contact = (props) => {
           </p>
         </div>
       </Modal>
-      <div className='container section'>
+      <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
           <div className='center'>
