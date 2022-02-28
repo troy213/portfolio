@@ -53,17 +53,16 @@ const About = () => {
             consider to support my website, you can click on the link below!
           </p>
           <div className='about-button'>
-            <a href={cv} download>
-              <button className='btn btn-primary'>
-                Download CV <i className='fa fa-download'></i>
-              </button>
+            <a href={cv} download className='btn btn-primary'>
+              Download CV&nbsp;<i className='fa fa-download'></i>
             </a>
             <a
               href='https://www.paypal.me/triteraerlangga'
               target='_blank'
               rel='noreferrer noopener'
+              className='btn btn-secondary'
             >
-              <button className='btn btn-secondary'>Donate</button>
+              Donate
             </a>
           </div>
         </div>

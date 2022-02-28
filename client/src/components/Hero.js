@@ -21,8 +21,8 @@ const Hero = (props) => {
               Computer Science on 2018.
             </p>
             <div className='center'>
-              <a href='#contact'>
-                <button className='btn btn-secondary btn-hero'>Contact</button>
+              <a href='#contact' className='btn btn-secondary btn-hero'>
+                Contact
               </a>
             </div>
           </div>

@@ -12,10 +12,8 @@ const Footer = () => {
             </em>
           </p>
           <div className='center'>
-            <a href='#home'>
-              <button className='btn btn-secondary btn-footer'>
-                Back To Top
-              </button>
+            <a href='#home' className='btn btn-secondary btn-footer'>
+              Back To Top
             </a>
           </div>
           <div className='footer-link'>
@@ -51,7 +49,7 @@ const Footer = () => {
             </div>
             <div>
               <a
-                href='https://www.linkedin.com/in/tritera-erlangga-0ab7b5183/'
+                href='https://www.linkedin.com/in/tritera-erlangga/'
                 target='_blank'
                 rel='noreferrer noopener'
               >

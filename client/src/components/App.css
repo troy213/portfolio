@@ -58,6 +58,10 @@ body {
   min-width: 320px;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -111,11 +115,23 @@ button {
 .btn-primary {
   background: #576cdb;
   transition: background 200ms ease;
+  padding: 1em;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13.3333px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-secondary {
   background: #ffcc4f;
   transition: background 200ms ease;
+  padding: 1em;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13.3333px;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-center {
@@ -158,6 +174,10 @@ button {
 .dropdown-title {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.dropdown-title i {
+  margin-right: 0.5em;
 }
 
 .mp-0 {
@@ -442,7 +462,7 @@ nav,
   justify-content: center;
 }
 
-.about-button button {
+.about-button a {
   margin: var(--s);
 }
 
