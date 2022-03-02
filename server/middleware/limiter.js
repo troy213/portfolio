@@ -1,12 +1,4 @@
-const mysql = require('mysql')
-require('dotenv').config()
-
-const db = mysql.createPool({
-  host: process.env.host,
-  user: process.env.user,
-  password: process.env.password,
-  database: process.env.database,
-})
+const db = require('../db_config')
 
 const limiter = (req, res, next) => {
   const sql = 'SELECT COUNT(*) FROM message'
