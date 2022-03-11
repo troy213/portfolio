@@ -700,6 +700,14 @@ nav,
   color: var(--solid-bluish-0);
 }
 
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: span 2;
+}
+
 #contact-name,
 #contact-email,
 #contact-message {

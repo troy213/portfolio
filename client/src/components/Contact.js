@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Modal from './Modal'
 import axios from 'axios'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const Contact = (props) => {
   const [name, setName] = useState('')
@@ -9,6 +10,12 @@ const Contact = (props) => {
   const [message, setMessage] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const [btnDisabled, setBtnDisabled] = useState(false)
+  const [captchaValue, setCaptchaValue] = useState('')
+  const recaptchaRef = React.createRef()
+
+  const onChange = (value) => {
+    setCaptchaValue(value)
+  }
 
   const validateEmail = (email) => {
     const regex =
@@ -16,48 +23,58 @@ const Contact = (props) => {
     return regex.test(String(email).toLowerCase())
   }
 
-  const sendData = () => {
+  const sendData = (e) => {
+    e.preventDefault()
     setBtnDisabled(true)
-    if (name && email && message) {
-      document.querySelectorAll('.contact-input').forEach((value) => {
-        if (value.value === '') {
-          value.className = 'contact-input danger'
-        } else {
-          value.className = 'contact-input'
-        }
-      })
+    const recaptchaValue = recaptchaRef.current.getValue()
 
-      if (validateEmail(email)) {
-        axios
-          .post('https://tritera-erlangga-api.herokuapp.com/message', {
-            name: name,
-            email: email,
-            message: message,
-          })
-          .then(() => {
-            props.onChangeModalValue('Message has been sent successfully!')
-            setBtnDisabled(false)
-            setIsOpen(true)
-          })
-          .catch(() => {
-            props.onChangeModalValue('Something went wrong :(')
-            setBtnDisabled(false)
-            setIsOpen(true)
-          })
+    if (recaptchaValue === captchaValue && captchaValue !== '') {
+      if (name && email && message) {
+        document.querySelectorAll('.contact-input').forEach((value) => {
+          if (value.value === '') {
+            value.className = 'contact-input danger'
+          } else {
+            value.className = 'contact-input'
+          }
+        })
+
+        if (validateEmail(email)) {
+          axios
+            .post('https://tritera-erlangga-api.herokuapp.com/message', {
+              name: name,
+              email: email,
+              message: message,
+            })
+            .then(() => {
+              props.onChangeModalValue('Message has been sent successfully!')
+              setBtnDisabled(false)
+              setIsOpen(true)
+            })
+            .catch((err) => {
+              props.onChangeModalValue('Something went wrong :(')
+              setBtnDisabled(false)
+              setIsOpen(true)
+              console.log(err)
+            })
+        } else {
+          props.onChangeModalValue('Your E-mail address is invalid')
+          setBtnDisabled(false)
+          setIsOpen(true)
+        }
       } else {
-        props.onChangeModalValue('Your E-mail address is invalid')
+        document.querySelectorAll('.contact-input').forEach((value) => {
+          if (value.value === '') {
+            value.className = 'contact-input danger'
+          } else {
+            value.className = 'contact-input'
+          }
+        })
+        props.onChangeModalValue('Please fill the blank')
         setBtnDisabled(false)
         setIsOpen(true)
       }
     } else {
-      document.querySelectorAll('.contact-input').forEach((value) => {
-        if (value.value === '') {
-          value.className = 'contact-input danger'
-        } else {
-          value.className = 'contact-input'
-        }
-      })
-      props.onChangeModalValue('Please fill the blank')
+      props.onChangeModalValue('Please verify that you are a human')
       setBtnDisabled(false)
       setIsOpen(true)
     }
@@ -80,7 +97,7 @@ const Contact = (props) => {
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
           <div className='center'>
-            <div className='grid-container'>
+            <form className='grid-container' onSubmit={sendData}>
               <label htmlFor='contact-name'>
                 <i className='fa fa-user'>&nbsp;</i>Name
               </label>
@@ -121,14 +138,23 @@ const Contact = (props) => {
                 maxLength='1023'
                 required
               ></textarea>
-              <button
-                className='btn btn-primary btn-contact'
-                onClick={sendData}
-                disabled={btnDisabled ? true : false}
-              >
-                Send
-              </button>
-            </div>
+              <div className='flex-center'>
+                <div>
+                  <button
+                    className='btn btn-primary btn-contact'
+                    type='submit'
+                    disabled={btnDisabled ? true : false}
+                  >
+                    Send
+                  </button>
+                </div>
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey='6LdjAdEeAAAAAHDrPBFm0kHTZElbG9Qxk5l91HaD'
+                  onChange={onChange}
+                />
+              </div>
+            </form>
           </div>
         </div>
       </div>
