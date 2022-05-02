@@ -219,6 +219,15 @@ button {
   max-width: 600px;
 }
 
+.w-90 {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.max-width-600 {
+  max-width: 600px;
+}
+
 /* ================= LAYOUT ================= */
 
 .container {
@@ -641,7 +650,7 @@ nav,
   overflow: hidden;
   /* background: url('../assets/project-bg.png');
   background-size: cover; */
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
 }
 
 .projects-card-img-wrapper {
@@ -686,9 +695,14 @@ nav,
   box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.2);
 }
 
-.grid-container {
-  display: grid;
+.form-input {
+  display: flex;
+  flex-direction: column;
   gap: 0.5em;
+}
+
+.form-input:not(:first-child) {
+  margin-top: 0.5em;
 }
 
 .btn-contact {
@@ -696,7 +710,7 @@ nav,
   justify-self: center;
 }
 
-.grid-container i {
+.form-input i {
   color: var(--solid-bluish-0);
 }
 
@@ -714,7 +728,7 @@ nav,
   background: rgba(168, 180, 243, 0.15);
   min-height: 25px;
   padding: 0 0.5em;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
 
@@ -724,6 +738,10 @@ nav,
 
 .danger {
   border: 3px solid rgba(255, 0, 0, 0.4) !important;
+}
+
+.recaptcha {
+  margin-bottom: 12px;
 }
 
 /* ================= FOOTER ================= */
@@ -1075,14 +1093,19 @@ footer a {
 
   /* ----------contact---------- */
 
-  .grid-container {
-    grid-template-columns: 1fr 3fr;
-    row-gap: 1em;
-    width: 70%;
+  .form-input {
+    display: flex;
+    flex-direction: row;
   }
 
-  .grid-container label {
+  .form-input label {
     justify-self: center;
+    min-width: 100px;
+  }
+
+  .form-input input,
+  .form-input textarea {
+    width: 100%;
   }
 
   .btn-contact {

@@ -96,48 +96,54 @@ const Contact = (props) => {
       <div className='container'>
         <div className='contact'>
           <h2 className='text-center bluish'>Contact</h2>
-          <div className='center'>
-            <form className='grid-container' onSubmit={sendData}>
-              <label htmlFor='contact-name'>
-                <i className='fa fa-user'>&nbsp;</i>Name
-              </label>
-              <input
-                type='text'
-                className='contact-input'
-                name='name'
-                id='contact-name'
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                maxLength='50'
-                required
-              />
-              <label htmlFor='contact-email'>
-                <i className='fa fa-envelope'>&nbsp;</i>Email
-              </label>
-              <input
-                type='email'
-                className='contact-input'
-                name='email'
-                id='contact-email'
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                maxLength='50'
-                required
-              />
-              <label htmlFor='contact-message'>
-                <i className='fa fa-comment'>&nbsp;</i>Message
-              </label>
-              <textarea
-                name='message'
-                className='contact-input'
-                id='contact-message'
-                cols='30'
-                rows='10'
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-                maxLength='1023'
-                required
-              ></textarea>
+          <div className='w-90 max-width-600'>
+            <form className='flex-container' onSubmit={sendData}>
+              <div className='form-input'>
+                <label htmlFor='contact-name'>
+                  <i className='fa fa-user'>&nbsp;</i>Name
+                </label>
+                <input
+                  type='text'
+                  className='contact-input'
+                  name='name'
+                  id='contact-name'
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  maxLength='50'
+                  required
+                />
+              </div>
+              <div className='form-input'>
+                <label htmlFor='contact-email'>
+                  <i className='fa fa-envelope'>&nbsp;</i>Email
+                </label>
+                <input
+                  type='email'
+                  className='contact-input'
+                  name='email'
+                  id='contact-email'
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  maxLength='50'
+                  required
+                />
+              </div>
+              <div className='form-input'>
+                <label htmlFor='contact-message'>
+                  <i className='fa fa-comment'>&nbsp;</i>Message
+                </label>
+                <textarea
+                  name='message'
+                  className='contact-input'
+                  id='contact-message'
+                  cols='30'
+                  rows='10'
+                  onChange={(e) => setMessage(e.target.value)}
+                  value={message}
+                  maxLength='1023'
+                  required
+                ></textarea>
+              </div>
               <div className='flex-center'>
                 <div>
                   <button
@@ -152,6 +158,7 @@ const Contact = (props) => {
                   ref={recaptchaRef}
                   sitekey='6LdjAdEeAAAAAHDrPBFm0kHTZElbG9Qxk5l91HaD'
                   onChange={onChange}
+                  className='recaptcha'
                 />
               </div>
             </form>
